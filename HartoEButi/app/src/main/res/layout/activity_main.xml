@@ -1,18 +1,545 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <ScrollView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_margin="5dp">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!-- Cabecera -->
+            <LinearLayout
+                android:id="@+id/cabecera"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:src="@drawable/perfil">
+                </de.hdodenhof.circleimageview.CircleImageView>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_gravity="center_vertical">
+
+                    <TextView
+                        android:layout_marginLeft="20dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="¡Buti, buti, buti!"
+                        android:textSize="18sp"
+                        android:textColor="@color/enfasis"/>
+
+                    <TextView
+                        android:layout_marginLeft="20dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Harto E' Buti"
+                        android:textSize="25sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/titulos"/>
+
+                </LinearLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/carrito"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                    </ImageView>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            </LinearLayout>
+
+            <!-- Opciones -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/opciones"
+                app:cardBackgroundColor="@color/menu"
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="140dp"
+                android:layout_below="@+id/cabecera"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="2dp"
+                app:cardUseCompatPadding="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_gravity="center">
+
+                    <TextView
+                        android:layout_marginTop="10dp"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="¡Si no te apetece ninguno de los combos que ofrecemos puedes crear tu pedido desde cero!"
+                        android:textColor="@color/titulos"
+                        android:textSize="15sp"
+                        android:textStyle="bold">
+                    </TextView>
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:layout_margin="15dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Arma tu combo"
+                        style="@style/Button">
+                    </androidx.appcompat.widget.AppCompatButton>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <!-- Pedidos promo -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/pedidoPromo"
+                android:layout_marginTop="25dp"
+                android:layout_below="@+id/opciones"
+                app:cardBackgroundColor="@color/tarjetas"
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="2dp"
+                app:cardUseCompatPadding="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_gravity="center"
+                    android:gravity="center">
+
+                    <LinearLayout
+                        android:layout_weight="1"
+                        android:layout_marginLeft="20dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_marginTop="10dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="PROMOCIÓN DEL DÍA"
+                            android:textColor="@color/resaltar"
+                            android:textSize="13sp"
+                            android:layout_marginBottom="10dp"
+                            android:textStyle="bold">
+                        </TextView>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="30 butis + los agregados por solo 20.000"
+                            android:textColor="@color/titulos"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            android:layout_marginBottom="10dp">
+                        </TextView>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="3PM - 4PM"
+                            android:textColor="@color/enfasis"
+                            android:textSize="10sp"
+                            android:layout_marginBottom="10dp"
+                            android:textStyle="bold">
+                        </TextView>
+
+                    </LinearLayout>
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:layout_margin="10dp"
+                        android:layout_width="125dp"
+                        android:layout_height="125dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginStart="0dp"
+                        android:layout_marginLeft="0dp"
+                        android:layout_marginEnd="0dp"
+                        android:layout_marginRight="0dp"
+                        android:src="@drawable/img1">
+
+                    </de.hdodenhof.circleimageview.CircleImageView>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Pedidos -->
+            <LinearLayout
+                android:id="@+id/primerospedidos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_below="@+id/pedidoPromo">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_weight="1"
+                    android:layout_marginTop="25dp"
+                    app:cardBackgroundColor="@color/tarjetas"
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    app:cardCornerRadius="20dp"
+                    android:layout_marginRight="10dp"
+                    app:cardElevation="2dp"
+                    app:cardUseCompatPadding="true">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_gravity="center"
+                        android:gravity="center">
+
+                        <RelativeLayout
+                            android:layout_marginTop="10dp"
+                            android:layout_weight="1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:gravity="center">
+
+                            <de.hdodenhof.circleimageview.CircleImageView
+                                xmlns:app="http://schemas.android.com/apk/res-auto"
+                                android:layout_width="125dp"
+                                android:layout_height="125dp"
+                                android:src="@drawable/img2">
+
+                            </de.hdodenhof.circleimageview.CircleImageView>
+
+                        </RelativeLayout>
+
+                        <LinearLayout
+                            android:layout_margin="10dp"
+                            android:gravity="center"
+                            android:layout_weight="1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_gravity="center"
+                                android:layout_marginTop="10dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Cógela Suave"
+                                android:textColor="@color/titulos"
+                                android:textSize="18sp"
+                                android:layout_marginBottom="10dp"
+                                android:textStyle="bold">
+                            </TextView>
+
+                            <TextView
+                                android:gravity="center"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="10 butis + bollo + limón + picante + pimienta"                              android:textColor="#7c7c7c"
+                                android:textSize="15sp"
+                                android:textStyle="bold"
+                                android:layout_marginBottom="10dp"
+                                android:textColorHint="@color/enfasis">
+                            </TextView>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="$ 6.000"
+                                android:textColor="@color/resaltar"
+                                android:textSize="15sp"
+                                android:layout_marginBottom="10dp"
+                                android:textStyle="bold">
+                            </TextView>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_marginLeft="10dp"
+                    android:layout_weight="1"
+                    android:layout_marginTop="25dp"
+                    app:cardBackgroundColor="@color/tarjetas"
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="2dp"
+                    app:cardUseCompatPadding="true">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_gravity="center"
+                        android:gravity="center">
+
+                        <RelativeLayout
+                            android:layout_marginTop="10dp"
+                            android:layout_weight="1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:gravity="center">
+
+                            <de.hdodenhof.circleimageview.CircleImageView
+                                xmlns:app="http://schemas.android.com/apk/res-auto"
+                                android:layout_width="125dp"
+                                android:layout_height="125dp"
+                                android:src="@drawable/img3">
+
+                            </de.hdodenhof.circleimageview.CircleImageView>
+
+                        </RelativeLayout>
+
+                        <LinearLayout
+                            android:layout_margin="10dp"
+                            android:gravity="center"
+                            android:layout_weight="1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_gravity="center"
+                                android:layout_marginTop="10dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Visajoso"
+                                android:textColor="@color/titulos"
+                                android:textSize="18sp"
+                                android:layout_marginBottom="10dp"
+                                android:textStyle="bold">
+                            </TextView>
+
+                            <TextView
+                                android:gravity="center"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="15 butis + bollo + limón + picante + pimienta"                              android:textColor="#7c7c7c"
+                                android:textSize="15sp"
+                                android:textStyle="bold"
+                                android:layout_marginBottom="10dp"
+                                android:textColorHint="@color/enfasis">
+                            </TextView>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="$ 8.000"
+                                android:textColor="@color/resaltar"
+                                android:textSize="15sp"
+                                android:layout_marginBottom="10dp"
+                                android:textStyle="bold">
+                            </TextView>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_below="@+id/primerospedidos">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_weight="1"
+                    android:layout_marginTop="25dp"
+                    app:cardBackgroundColor="@color/tarjetas"
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    app:cardCornerRadius="20dp"
+                    android:layout_marginRight="10dp"
+                    app:cardElevation="2dp"
+                    app:cardUseCompatPadding="true">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_gravity="center"
+                        android:gravity="center">
+
+                        <RelativeLayout
+                            android:layout_marginTop="10dp"
+                            android:layout_weight="1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:gravity="center">
+
+                            <de.hdodenhof.circleimageview.CircleImageView
+                                xmlns:app="http://schemas.android.com/apk/res-auto"
+                                android:layout_width="125dp"
+                                android:layout_height="125dp"
+                                android:src="@drawable/img4">
+
+                            </de.hdodenhof.circleimageview.CircleImageView>
+
+                        </RelativeLayout>
+
+                        <LinearLayout
+                            android:layout_margin="10dp"
+                            android:gravity="center"
+                            android:layout_weight="1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_gravity="center"
+                                android:layout_marginTop="10dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Espeluque"
+                                android:textColor="@color/titulos"
+                                android:textSize="18sp"
+                                android:layout_marginBottom="10dp"
+                                android:textStyle="bold">
+                            </TextView>
+
+                            <TextView
+                                android:gravity="center"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="20 butis + patacón + bollo + limón + picante + pimienta"                              android:textColor="#7c7c7c"
+                                android:textSize="15sp"
+                                android:textStyle="bold"
+                                android:layout_marginBottom="10dp"
+                                android:textColorHint="@color/enfasis">
+                            </TextView>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="$ 13.000"
+                                android:textColor="@color/resaltar"
+                                android:textSize="15sp"
+                                android:layout_marginBottom="10dp"
+                                android:textStyle="bold">
+                            </TextView>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_marginLeft="10dp"
+                    android:layout_weight="1"
+                    android:layout_marginTop="25dp"
+                    app:cardBackgroundColor="@color/tarjetas"
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="2dp"
+                    app:cardUseCompatPadding="true">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_gravity="center"
+                        android:gravity="center">
+
+                        <RelativeLayout
+                            android:layout_marginTop="10dp"
+                            android:layout_weight="1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:gravity="center">
+
+                            <de.hdodenhof.circleimageview.CircleImageView
+                                xmlns:app="http://schemas.android.com/apk/res-auto"
+                                android:layout_width="125dp"
+                                android:layout_height="125dp"
+                                android:src="@drawable/img5">
+
+                            </de.hdodenhof.circleimageview.CircleImageView>
+
+                        </RelativeLayout>
+
+                        <LinearLayout
+                            android:layout_margin="10dp"
+                            android:gravity="center"
+                            android:layout_weight="1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_gravity="center"
+                                android:layout_marginTop="10dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Barrejobo"
+                                android:textColor="@color/titulos"
+                                android:textSize="18sp"
+                                android:layout_marginBottom="10dp"
+                                android:textStyle="bold">
+                            </TextView>
+
+                            <TextView
+                                android:gravity="center"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="30 butis + chorizo + patacón + bollo + limón + picante + pimienta"                              android:textColor="#7c7c7c"
+                                android:textSize="15sp"
+                                android:textStyle="bold"
+                                android:layout_marginBottom="10dp"
+                                android:textColorHint="@color/enfasis">
+                            </TextView>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="$ 22.000"
+                                android:textColor="@color/resaltar"
+                                android:textSize="15sp"
+                                android:layout_marginBottom="10dp"
+                                android:textStyle="bold">
+                            </TextView>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+            </LinearLayout>
+        </RelativeLayout>
+
+    </ScrollView>
+
+
+</RelativeLayout>
