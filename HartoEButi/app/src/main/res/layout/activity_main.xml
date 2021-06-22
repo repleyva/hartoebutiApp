@@ -23,8 +23,8 @@
                 android:orientation="horizontal">
 
                 <de.hdodenhof.circleimageview.CircleImageView
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
                     android:src="@drawable/perfil">
                 </de.hdodenhof.circleimageview.CircleImageView>
 
@@ -61,10 +61,13 @@
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_gravity="center"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginRight="10dp"
                         android:background="@drawable/carrito"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent">
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.466">
 
                     </ImageView>
 
@@ -93,6 +96,8 @@
 
                     <TextView
                         android:layout_marginTop="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginLeft="10dp"
                         android:layout_gravity="center"
                         android:gravity="center"
                         android:layout_width="wrap_content"
@@ -118,7 +123,6 @@
             <!-- Pedidos promo -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/pedidoPromo"
-                android:layout_marginTop="25dp"
                 android:layout_below="@+id/opciones"
                 app:cardBackgroundColor="@color/tarjetas"
                 android:layout_width="match_parent"
@@ -202,12 +206,10 @@
 
                 <androidx.cardview.widget.CardView
                     android:layout_weight="1"
-                    android:layout_marginTop="25dp"
                     app:cardBackgroundColor="@color/tarjetas"
                     android:layout_width="match_parent"
                     android:layout_height="300dp"
                     app:cardCornerRadius="20dp"
-                    android:layout_marginRight="10dp"
                     app:cardElevation="2dp"
                     app:cardUseCompatPadding="true">
 
@@ -283,9 +285,7 @@
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
-                    android:layout_marginLeft="10dp"
                     android:layout_weight="1"
-                    android:layout_marginTop="25dp"
                     app:cardBackgroundColor="@color/tarjetas"
                     android:layout_width="match_parent"
                     android:layout_height="300dp"
@@ -374,12 +374,10 @@
 
                 <androidx.cardview.widget.CardView
                     android:layout_weight="1"
-                    android:layout_marginTop="25dp"
                     app:cardBackgroundColor="@color/tarjetas"
                     android:layout_width="match_parent"
                     android:layout_height="300dp"
                     app:cardCornerRadius="20dp"
-                    android:layout_marginRight="10dp"
                     app:cardElevation="2dp"
                     app:cardUseCompatPadding="true">
 
@@ -455,9 +453,7 @@
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
-                    android:layout_marginLeft="10dp"
                     android:layout_weight="1"
-                    android:layout_marginTop="25dp"
                     app:cardBackgroundColor="@color/tarjetas"
                     android:layout_width="match_parent"
                     android:layout_height="300dp"
