@@ -325,6 +325,46 @@
                         android:gravity="center"
                         android:orientation="vertical">
 
+                        <LinearLayout
+                            android:id="@+id/linearNumPedido1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_marginTop="10dp"
+                            android:gravity="center">
+
+                            <ImageView
+                                android:id="@+id/btnLess"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                style="@style/Button_add"
+                                android:src="@drawable/ic_baseline_horizontal_rule_24">
+                            </ImageView>
+
+                            <TextView
+                                android:id="@+id/numPedido1"
+                                android:layout_marginLeft="15dp"
+                                android:layout_marginRight="15dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="1"
+                                android:textColor="@color/titulos"
+                                android:textSize="20sp"
+                                android:gravity="center">
+                            </TextView>
+
+                            <ImageView
+                                android:id="@+id/btnAdd"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                style="@style/Button_add"
+                                android:src="@drawable/ic_baseline_add_24">
+                            </ImageView>
+
+                        </LinearLayout>
+
                         <RelativeLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -359,7 +399,7 @@
                                 android:text="Cógela Suave"
                                 android:textColor="@color/titulos"
                                 android:textSize="18sp"
-                                android:textStyle="bold"></TextView>
+                                android:textStyle="bold" />
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -370,7 +410,7 @@
                                 android:textColor="#7c7c7c"
                                 android:textColorHint="@color/enfasis"
                                 android:textSize="15sp"
-                                android:textStyle="bold"></TextView>
+                                android:textStyle="bold" />
 
                             <TextView
                                 android:layout_width="wrap_content"
