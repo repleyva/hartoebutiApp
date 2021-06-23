@@ -1,15 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/extendedFloatingActionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="@color/menu"
+        app:iconGravity="start"
+        android:text="Acciones"
+        app:icon="@drawable/ic_baseline_add_24"
+        app:iconTint="@color/titulos"
+        android:textColor="@color/titulos"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginRight="16dp">
+
+    </com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton>
+
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/floatingInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="80dp"
+        android:backgroundTint="@color/menu"
+        android:gravity="center_horizontal"
+        android:textColor="@color/titulos"
+        app:icon="@drawable/ic_baseline_info_24"
+        app:iconGravity="start"
+        app:iconTint="@color/titulos"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+    </com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton>
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp">
+        android:layout_margin="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -25,31 +68,30 @@
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    android:src="@drawable/perfil">
-                </de.hdodenhof.circleimageview.CircleImageView>
+                    android:src="@drawable/perfil" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_gravity="center_vertical">
+                    android:layout_gravity="center_vertical"
+                    android:orientation="vertical">
 
                     <TextView
-                        android:layout_marginLeft="20dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
                         android:text="¡Buti, buti, buti!"
-                        android:textSize="18sp"
-                        android:textColor="@color/enfasis"/>
+                        android:textColor="@color/enfasis"
+                        android:textSize="18sp" />
 
                     <TextView
-                        android:layout_marginLeft="20dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
                         android:text="Harto E' Buti"
+                        android:textColor="@color/titulos"
                         android:textSize="25sp"
-                        android:textStyle="bold"
-                        android:textColor="@color/titulos"/>
+                        android:textStyle="bold" />
 
                 </LinearLayout>
 
@@ -72,18 +114,16 @@
                     </ImageView>
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
-
-
             </LinearLayout>
 
             <!-- Opciones -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/opciones"
-                app:cardBackgroundColor="@color/menu"
-                android:layout_marginTop="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="140dp"
                 android:layout_below="@+id/cabecera"
+                android:layout_marginTop="20dp"
+                app:cardBackgroundColor="@color/menu"
                 app:cardCornerRadius="20dp"
                 app:cardElevation="2dp"
                 app:cardUseCompatPadding="true">
@@ -91,42 +131,75 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_gravity="center">
+                    android:layout_gravity="center"
+                    android:orientation="vertical">
 
                     <TextView
-                        android:layout_marginTop="10dp"
-                        android:layout_marginRight="10dp"
-                        android:layout_marginLeft="10dp"
-                        android:layout_gravity="center"
-                        android:gravity="center"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="10dp"
+                        android:gravity="center"
                         android:text="¡Si no te apetece ninguno de los combos que ofrecemos puedes crear tu pedido desde cero!"
                         android:textColor="@color/titulos"
                         android:textSize="15sp"
-                        android:textStyle="bold">
-                    </TextView>
+                        android:textStyle="bold" />
 
                     <androidx.appcompat.widget.AppCompatButton
-                        android:layout_margin="15dp"
+                        style="@style/Button"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Arma tu combo"
-                        style="@style/Button">
-                    </androidx.appcompat.widget.AppCompatButton>
+                        android:layout_margin="15dp"
+                        android:text="Arma tu combo" />
 
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
 
+            <LinearLayout
+                android:layout_below="@+id/opciones"
+                android:id="@+id/lineaProm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="12"
+                android:gravity="center">
+
+                <View
+                    android:layout_gravity="center"
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:background="@color/enfasis"
+                    android:layout_weight="3"/>
+
+                <TextView
+                    style="@style/viewParent.headerText.NoMode"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/enfasis"
+                    android:text="Promociones"
+                    android:layout_weight="4"
+                    android:textSize="15sp"
+                    android:textAlignment="center"
+                    android:gravity="center"/>
+
+                <View
+                    android:layout_gravity="center"
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:background="@color/enfasis"
+                    android:layout_weight="3"/>
+
+            </LinearLayout>
+
             <!-- Pedidos promo -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/pedidoPromo"
-                android:layout_below="@+id/opciones"
-                app:cardBackgroundColor="@color/tarjetas"
                 android:layout_width="match_parent"
                 android:layout_height="180dp"
+                android:layout_below="@+id/lineaProm"
+                app:cardBackgroundColor="@color/tarjetas"
                 app:cardCornerRadius="20dp"
                 app:cardElevation="2dp"
                 app:cardUseCompatPadding="true">
@@ -134,58 +207,55 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
                     android:layout_gravity="center"
-                    android:gravity="center">
+                    android:gravity="center"
+                    android:orientation="horizontal">
 
                     <LinearLayout
-                        android:layout_weight="1"
-                        android:layout_marginLeft="20dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_weight="1"
                         android:orientation="vertical">
 
                         <TextView
-                            android:layout_marginTop="10dp"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
                             android:text="PROMOCIÓN DEL DÍA"
                             android:textColor="@color/resaltar"
                             android:textSize="13sp"
-                            android:layout_marginBottom="10dp"
-                            android:textStyle="bold">
-                        </TextView>
+                            android:textStyle="bold"></TextView>
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginBottom="10dp"
                             android:text="30 butis + los agregados por solo 20.000"
                             android:textColor="@color/titulos"
                             android:textSize="18sp"
-                            android:textStyle="bold"
-                            android:layout_marginBottom="10dp">
-                        </TextView>
+                            android:textStyle="bold"></TextView>
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginBottom="10dp"
                             android:text="3PM - 4PM"
                             android:textColor="@color/enfasis"
                             android:textSize="10sp"
-                            android:layout_marginBottom="10dp"
-                            android:textStyle="bold">
-                        </TextView>
+                            android:textStyle="bold"></TextView>
 
                     </LinearLayout>
 
                     <de.hdodenhof.circleimageview.CircleImageView
-                        android:layout_margin="10dp"
                         android:layout_width="125dp"
                         android:layout_height="125dp"
                         android:layout_alignParentStart="true"
                         android:layout_alignParentLeft="true"
                         android:layout_alignParentEnd="true"
                         android:layout_alignParentRight="true"
+                        android:layout_margin="10dp"
                         android:layout_marginStart="0dp"
                         android:layout_marginLeft="0dp"
                         android:layout_marginEnd="0dp"
@@ -196,19 +266,54 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
+            <LinearLayout
+                android:layout_below="@+id/pedidoPromo"
+                android:id="@+id/lineaPedidos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="12"
+                android:gravity="center">
+
+                <View
+                    android:layout_gravity="center"
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:background="@color/enfasis"
+                    android:layout_weight="3"/>
+
+                <TextView
+                    style="@style/viewParent.headerText.NoMode"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/enfasis"
+                    android:text="Pedidos"
+                    android:layout_weight="4"
+                    android:textSize="15sp"
+                    android:textAlignment="center"
+                    android:gravity="center"/>
+
+                <View
+                    android:layout_gravity="center"
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:background="@color/enfasis"
+                    android:layout_weight="3"/>
+
+            </LinearLayout>
+
             <!-- Pedidos -->
             <LinearLayout
                 android:id="@+id/primerospedidos"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_below="@+id/pedidoPromo">
+                android:layout_below="@+id/lineaPedidos"
+                android:orientation="horizontal">
 
                 <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
                     app:cardBackgroundColor="@color/tarjetas"
-                    android:layout_width="match_parent"
-                    android:layout_height="300dp"
                     app:cardCornerRadius="20dp"
                     app:cardElevation="2dp"
                     app:cardUseCompatPadding="true">
@@ -216,20 +321,19 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
                         android:layout_gravity="center"
-                        android:gravity="center">
+                        android:gravity="center"
+                        android:orientation="vertical">
 
                         <RelativeLayout
-                            android:layout_marginTop="10dp"
-                            android:layout_weight="1"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
+                            android:layout_marginTop="10dp"
+                            android:layout_weight="1"
                             android:gravity="center">
 
-                            <de.hdodenhof.circleimageview.CircleImageView
-                                xmlns:app="http://schemas.android.com/apk/res-auto"
+                            <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
                                 android:layout_width="125dp"
                                 android:layout_height="125dp"
                                 android:src="@drawable/img2">
@@ -239,45 +343,43 @@
                         </RelativeLayout>
 
                         <LinearLayout
-                            android:layout_margin="10dp"
-                            android:gravity="center"
-                            android:layout_weight="1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:layout_weight="1"
+                            android:gravity="center"
                             android:orientation="vertical">
 
                             <TextView
-                                android:layout_gravity="center"
-                                android:layout_marginTop="10dp"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginBottom="10dp"
                                 android:text="Cógela Suave"
                                 android:textColor="@color/titulos"
                                 android:textSize="18sp"
-                                android:layout_marginBottom="10dp"
-                                android:textStyle="bold">
-                            </TextView>
+                                android:textStyle="bold"></TextView>
 
                             <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="10dp"
                                 android:gravity="center"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="10 butis + bollo + limón + picante + pimienta"                              android:textColor="#7c7c7c"
+                                android:text="10 butis + bollo + limón + picante + pimienta"
+                                android:textColor="#7c7c7c"
+                                android:textColorHint="@color/enfasis"
                                 android:textSize="15sp"
-                                android:textStyle="bold"
-                                android:layout_marginBottom="10dp"
-                                android:textColorHint="@color/enfasis">
-                            </TextView>
+                                android:textStyle="bold"></TextView>
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:layout_marginBottom="10dp"
                                 android:text="$ 6.000"
                                 android:textColor="@color/resaltar"
-                                android:textSize="15sp"
-                                android:layout_marginBottom="10dp"
-                                android:textStyle="bold">
-                            </TextView>
+                                android:textSize="@dimen/precios"
+                                android:textStyle="bold" />
 
                         </LinearLayout>
 
@@ -285,10 +387,10 @@
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
                     app:cardBackgroundColor="@color/tarjetas"
-                    android:layout_width="match_parent"
-                    android:layout_height="300dp"
                     app:cardCornerRadius="20dp"
                     app:cardElevation="2dp"
                     app:cardUseCompatPadding="true">
@@ -296,20 +398,19 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
                         android:layout_gravity="center"
-                        android:gravity="center">
+                        android:gravity="center"
+                        android:orientation="vertical">
 
                         <RelativeLayout
-                            android:layout_marginTop="10dp"
-                            android:layout_weight="1"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
+                            android:layout_marginTop="10dp"
+                            android:layout_weight="1"
                             android:gravity="center">
 
-                            <de.hdodenhof.circleimageview.CircleImageView
-                                xmlns:app="http://schemas.android.com/apk/res-auto"
+                            <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
                                 android:layout_width="125dp"
                                 android:layout_height="125dp"
                                 android:src="@drawable/img3">
@@ -319,45 +420,43 @@
                         </RelativeLayout>
 
                         <LinearLayout
-                            android:layout_margin="10dp"
-                            android:gravity="center"
-                            android:layout_weight="1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:layout_weight="1"
+                            android:gravity="center"
                             android:orientation="vertical">
 
                             <TextView
-                                android:layout_gravity="center"
-                                android:layout_marginTop="10dp"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginBottom="10dp"
                                 android:text="Visajoso"
                                 android:textColor="@color/titulos"
                                 android:textSize="18sp"
-                                android:layout_marginBottom="10dp"
-                                android:textStyle="bold">
-                            </TextView>
+                                android:textStyle="bold" />
 
                             <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="10dp"
                                 android:gravity="center"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="15 butis + bollo + limón + picante + pimienta"                              android:textColor="#7c7c7c"
+                                android:text="15 butis + bollo + limón + picante + pimienta"
+                                android:textColor="#7c7c7c"
+                                android:textColorHint="@color/enfasis"
                                 android:textSize="15sp"
-                                android:textStyle="bold"
-                                android:layout_marginBottom="10dp"
-                                android:textColorHint="@color/enfasis">
-                            </TextView>
+                                android:textStyle="bold" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:layout_marginBottom="10dp"
                                 android:text="$ 8.000"
                                 android:textColor="@color/resaltar"
-                                android:textSize="15sp"
-                                android:layout_marginBottom="10dp"
-                                android:textStyle="bold">
-                            </TextView>
+                                android:textSize="@dimen/precios"
+                                android:textStyle="bold" />
 
                         </LinearLayout>
 
@@ -369,14 +468,14 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_below="@+id/primerospedidos">
+                android:layout_below="@+id/primerospedidos"
+                android:orientation="horizontal">
 
                 <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
                     app:cardBackgroundColor="@color/tarjetas"
-                    android:layout_width="match_parent"
-                    android:layout_height="300dp"
                     app:cardCornerRadius="20dp"
                     app:cardElevation="2dp"
                     app:cardUseCompatPadding="true">
@@ -384,20 +483,19 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
                         android:layout_gravity="center"
-                        android:gravity="center">
+                        android:gravity="center"
+                        android:orientation="vertical">
 
                         <RelativeLayout
-                            android:layout_marginTop="10dp"
-                            android:layout_weight="1"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
+                            android:layout_marginTop="10dp"
+                            android:layout_weight="1"
                             android:gravity="center">
 
-                            <de.hdodenhof.circleimageview.CircleImageView
-                                xmlns:app="http://schemas.android.com/apk/res-auto"
+                            <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
                                 android:layout_width="125dp"
                                 android:layout_height="125dp"
                                 android:src="@drawable/img4">
@@ -407,45 +505,43 @@
                         </RelativeLayout>
 
                         <LinearLayout
-                            android:layout_margin="10dp"
-                            android:gravity="center"
-                            android:layout_weight="1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:layout_weight="1"
+                            android:gravity="center"
                             android:orientation="vertical">
 
                             <TextView
-                                android:layout_gravity="center"
-                                android:layout_marginTop="10dp"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginBottom="10dp"
                                 android:text="Espeluque"
                                 android:textColor="@color/titulos"
                                 android:textSize="18sp"
-                                android:layout_marginBottom="10dp"
-                                android:textStyle="bold">
-                            </TextView>
+                                android:textStyle="bold" />
 
                             <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="10dp"
                                 android:gravity="center"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="20 butis + patacón + bollo + limón + picante + pimienta"                              android:textColor="#7c7c7c"
+                                android:text="20 butis + patacón + bollo + limón + picante + pimienta"
+                                android:textColor="#7c7c7c"
+                                android:textColorHint="@color/enfasis"
                                 android:textSize="15sp"
-                                android:textStyle="bold"
-                                android:layout_marginBottom="10dp"
-                                android:textColorHint="@color/enfasis">
-                            </TextView>
+                                android:textStyle="bold" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:layout_marginBottom="10dp"
                                 android:text="$ 13.000"
                                 android:textColor="@color/resaltar"
-                                android:textSize="15sp"
-                                android:layout_marginBottom="10dp"
-                                android:textStyle="bold">
-                            </TextView>
+                                android:textSize="@dimen/precios"
+                                android:textStyle="bold" />
 
                         </LinearLayout>
 
@@ -453,10 +549,10 @@
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
                     app:cardBackgroundColor="@color/tarjetas"
-                    android:layout_width="match_parent"
-                    android:layout_height="300dp"
                     app:cardCornerRadius="20dp"
                     app:cardElevation="2dp"
                     app:cardUseCompatPadding="true">
@@ -464,20 +560,19 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
                         android:layout_gravity="center"
-                        android:gravity="center">
+                        android:gravity="center"
+                        android:orientation="vertical">
 
                         <RelativeLayout
-                            android:layout_marginTop="10dp"
-                            android:layout_weight="1"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
+                            android:layout_marginTop="10dp"
+                            android:layout_weight="1"
                             android:gravity="center">
 
-                            <de.hdodenhof.circleimageview.CircleImageView
-                                xmlns:app="http://schemas.android.com/apk/res-auto"
+                            <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
                                 android:layout_width="125dp"
                                 android:layout_height="125dp"
                                 android:src="@drawable/img5">
@@ -487,45 +582,43 @@
                         </RelativeLayout>
 
                         <LinearLayout
-                            android:layout_margin="10dp"
-                            android:gravity="center"
-                            android:layout_weight="1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:layout_weight="1"
+                            android:gravity="center"
                             android:orientation="vertical">
 
                             <TextView
-                                android:layout_gravity="center"
-                                android:layout_marginTop="10dp"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginBottom="10dp"
                                 android:text="Barrejobo"
                                 android:textColor="@color/titulos"
                                 android:textSize="18sp"
-                                android:layout_marginBottom="10dp"
-                                android:textStyle="bold">
-                            </TextView>
+                                android:textStyle="bold" />
 
                             <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="10dp"
                                 android:gravity="center"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="30 butis + chorizo + patacón + bollo + limón + picante + pimienta"                              android:textColor="#7c7c7c"
+                                android:text="30 butis + chorizo + patacón + bollo + limón + picante + pimienta"
+                                android:textColor="#7c7c7c"
+                                android:textColorHint="@color/enfasis"
                                 android:textSize="15sp"
-                                android:textStyle="bold"
-                                android:layout_marginBottom="10dp"
-                                android:textColorHint="@color/enfasis">
-                            </TextView>
+                                android:textStyle="bold" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:layout_marginBottom="10dp"
                                 android:text="$ 22.000"
                                 android:textColor="@color/resaltar"
-                                android:textSize="15sp"
-                                android:layout_marginBottom="10dp"
-                                android:textStyle="bold">
-                            </TextView>
+                                android:textSize="@dimen/precios"
+                                android:textStyle="bold" />
 
                         </LinearLayout>
 
@@ -538,4 +631,4 @@
     </ScrollView>
 
 
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
