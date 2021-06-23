@@ -45,6 +45,25 @@
 
     </com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton>
 
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/extendedFloatingCarrito"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/menu"
+        android:gravity="center"
+        android:text="(Hacer pedido) Total: $ 6.000"
+        android:textColor="@color/titulos"
+        app:icon="@drawable/carrito"
+        app:iconGravity="start"
+        app:iconTint="@color/titulos"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginLeft="16dp"
+        android:layout_marginBottom="16dp">
+
+    </com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton>
+
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -310,6 +329,7 @@
                 android:orientation="horizontal">
 
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/targeta1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -336,7 +356,7 @@
                             android:gravity="center">
 
                             <ImageView
-                                android:id="@+id/btnLess"
+                                android:id="@+id/btnLess1"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 style="@style/Button_add"
@@ -356,7 +376,7 @@
                             </TextView>
 
                             <ImageView
-                                android:id="@+id/btnAdd"
+                                android:id="@+id/btnAdd1"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 style="@style/Button_add"
@@ -427,6 +447,7 @@
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/targeta2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -441,6 +462,46 @@
                         android:layout_gravity="center"
                         android:gravity="center"
                         android:orientation="vertical">
+
+                        <LinearLayout
+                            android:id="@+id/linearNumPedido2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_marginTop="10dp"
+                            android:gravity="center">
+
+                            <ImageView
+                                android:id="@+id/btnLess2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                style="@style/Button_add"
+                                android:src="@drawable/ic_baseline_horizontal_rule_24">
+                            </ImageView>
+
+                            <TextView
+                                android:id="@+id/numPedido2"
+                                android:layout_marginLeft="15dp"
+                                android:layout_marginRight="15dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="1"
+                                android:textColor="@color/titulos"
+                                android:textSize="20sp"
+                                android:gravity="center">
+                            </TextView>
+
+                            <ImageView
+                                android:id="@+id/btnAdd2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                style="@style/Button_add"
+                                android:src="@drawable/ic_baseline_add_24">
+                            </ImageView>
+
+                        </LinearLayout>
 
                         <RelativeLayout
                             android:layout_width="match_parent"
@@ -512,6 +573,7 @@
                 android:orientation="horizontal">
 
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/targeta3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -526,6 +588,46 @@
                         android:layout_gravity="center"
                         android:gravity="center"
                         android:orientation="vertical">
+
+                        <LinearLayout
+                            android:id="@+id/linearNumPedido3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_marginTop="10dp"
+                            android:gravity="center">
+
+                            <ImageView
+                                android:id="@+id/btnLess3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                style="@style/Button_add"
+                                android:src="@drawable/ic_baseline_horizontal_rule_24">
+                            </ImageView>
+
+                            <TextView
+                                android:id="@+id/numPedido3"
+                                android:layout_marginLeft="15dp"
+                                android:layout_marginRight="15dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="1"
+                                android:textColor="@color/titulos"
+                                android:textSize="20sp"
+                                android:gravity="center">
+                            </TextView>
+
+                            <ImageView
+                                android:id="@+id/btnAdd3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                style="@style/Button_add"
+                                android:src="@drawable/ic_baseline_add_24">
+                            </ImageView>
+
+                        </LinearLayout>
 
                         <RelativeLayout
                             android:layout_width="match_parent"
@@ -589,6 +691,7 @@
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/targeta4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -603,6 +706,46 @@
                         android:layout_gravity="center"
                         android:gravity="center"
                         android:orientation="vertical">
+
+                        <LinearLayout
+                            android:id="@+id/linearNumPedido4"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_marginTop="10dp"
+                            android:gravity="center">
+
+                            <ImageView
+                                android:id="@+id/btnLess4"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                style="@style/Button_add"
+                                android:src="@drawable/ic_baseline_horizontal_rule_24">
+                            </ImageView>
+
+                            <TextView
+                                android:id="@+id/numPedido4"
+                                android:layout_marginLeft="15dp"
+                                android:layout_marginRight="15dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="1"
+                                android:textColor="@color/titulos"
+                                android:textSize="20sp"
+                                android:gravity="center">
+                            </TextView>
+
+                            <ImageView
+                                android:id="@+id/btnAdd4"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                style="@style/Button_add"
+                                android:src="@drawable/ic_baseline_add_24">
+                            </ImageView>
+
+                        </LinearLayout>
 
                         <RelativeLayout
                             android:layout_width="match_parent"
