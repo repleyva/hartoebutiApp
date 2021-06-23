@@ -51,7 +51,7 @@
         android:layout_height="wrap_content"
         android:backgroundTint="@color/menu"
         android:gravity="center"
-        android:text="(Hacer pedido) Total: $ 6.000"
+        android:text="(Hacer pedido) Total: 0"
         android:textColor="@color/titulos"
         app:icon="@drawable/carrito"
         app:iconGravity="start"
@@ -329,7 +329,6 @@
                 android:orientation="horizontal">
 
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/targeta1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -356,11 +355,22 @@
                             android:gravity="center">
 
                             <ImageView
+                                android:onClick="decrementar"
                                 android:id="@+id/btnLess1"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 style="@style/Button_add"
                                 android:src="@drawable/ic_baseline_horizontal_rule_24">
+                            </ImageView>
+
+                            <ImageView
+                                android:visibility="gone"
+                                android:onClick="eliminarPedido"
+                                android:id="@+id/btnLess1delete"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                style="@style/Button_add"
+                                android:src="@drawable/ic_baseline_delete_24">
                             </ImageView>
 
                             <TextView
@@ -369,13 +379,14 @@
                                 android:layout_marginRight="15dp"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="1"
+                                android:text="0"
                                 android:textColor="@color/titulos"
                                 android:textSize="20sp"
                                 android:gravity="center">
                             </TextView>
 
                             <ImageView
+                                android:onClick="incrementar"
                                 android:id="@+id/btnAdd1"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -394,6 +405,7 @@
                             android:gravity="center">
 
                             <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+                                android:id="@+id/targeta1"
                                 android:layout_width="125dp"
                                 android:layout_height="125dp"
                                 android:src="@drawable/img2">
@@ -447,7 +459,6 @@
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/targeta2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -474,11 +485,22 @@
                             android:gravity="center">
 
                             <ImageView
+                                android:onClick="decrementar"
                                 android:id="@+id/btnLess2"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 style="@style/Button_add"
                                 android:src="@drawable/ic_baseline_horizontal_rule_24">
+                            </ImageView>
+
+                            <ImageView
+                                android:visibility="gone"
+                                android:onClick="eliminarPedido"
+                                android:id="@+id/btnLess2delete"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                style="@style/Button_add"
+                                android:src="@drawable/ic_baseline_delete_24">
                             </ImageView>
 
                             <TextView
@@ -487,13 +509,14 @@
                                 android:layout_marginRight="15dp"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="1"
+                                android:text="0"
                                 android:textColor="@color/titulos"
                                 android:textSize="20sp"
                                 android:gravity="center">
                             </TextView>
 
                             <ImageView
+                                android:onClick="incrementar"
                                 android:id="@+id/btnAdd2"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -512,6 +535,7 @@
                             android:gravity="center">
 
                             <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+                                android:id="@+id/targeta2"
                                 android:layout_width="125dp"
                                 android:layout_height="125dp"
                                 android:src="@drawable/img3">
@@ -573,7 +597,6 @@
                 android:orientation="horizontal">
 
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/targeta3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -600,11 +623,22 @@
                             android:gravity="center">
 
                             <ImageView
+                                android:onClick="decrementar"
                                 android:id="@+id/btnLess3"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 style="@style/Button_add"
                                 android:src="@drawable/ic_baseline_horizontal_rule_24">
+                            </ImageView>
+
+                            <ImageView
+                                android:visibility="gone"
+                                android:onClick="eliminarPedido"
+                                android:id="@+id/btnLess3delete"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                style="@style/Button_add"
+                                android:src="@drawable/ic_baseline_delete_24">
                             </ImageView>
 
                             <TextView
@@ -613,13 +647,14 @@
                                 android:layout_marginRight="15dp"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="1"
+                                android:text="0"
                                 android:textColor="@color/titulos"
                                 android:textSize="20sp"
                                 android:gravity="center">
                             </TextView>
 
                             <ImageView
+                                android:onClick="incrementar"
                                 android:id="@+id/btnAdd3"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -638,6 +673,7 @@
                             android:gravity="center">
 
                             <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+                                android:id="@+id/targeta3"
                                 android:layout_width="125dp"
                                 android:layout_height="125dp"
                                 android:src="@drawable/img4">
@@ -691,7 +727,6 @@
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/targeta4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -718,11 +753,22 @@
                             android:gravity="center">
 
                             <ImageView
+                                android:onClick="decrementar"
                                 android:id="@+id/btnLess4"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 style="@style/Button_add"
                                 android:src="@drawable/ic_baseline_horizontal_rule_24">
+                            </ImageView>
+
+                            <ImageView
+                                android:visibility="gone"
+                                android:onClick="eliminarPedido"
+                                android:id="@+id/btnLess4delete"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                style="@style/Button_add"
+                                android:src="@drawable/ic_baseline_delete_24">
                             </ImageView>
 
                             <TextView
@@ -731,13 +777,14 @@
                                 android:layout_marginRight="15dp"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="1"
+                                android:text="0"
                                 android:textColor="@color/titulos"
                                 android:textSize="20sp"
                                 android:gravity="center">
                             </TextView>
 
                             <ImageView
+                                android:onClick="incrementar"
                                 android:id="@+id/btnAdd4"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -756,6 +803,7 @@
                             android:gravity="center">
 
                             <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+                                android:id="@+id/targeta4"
                                 android:layout_width="125dp"
                                 android:layout_height="125dp"
                                 android:src="@drawable/img5">
