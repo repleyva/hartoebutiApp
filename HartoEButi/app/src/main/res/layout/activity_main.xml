@@ -109,7 +109,7 @@
                         android:layout_marginLeft="20dp"
                         android:text="Harto E' Buti"
                         android:textColor="@color/titulos"
-                        android:textSize="25sp"
+                        android:textSize="@dimen/titulos"
                         android:textStyle="bold" />
 
                 </LinearLayout>

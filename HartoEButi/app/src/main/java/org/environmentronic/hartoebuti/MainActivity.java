@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
@@ -145,10 +146,17 @@ public class MainActivity extends AppCompatActivity {
                     if (tot == 0) {
                         extendedFloatingCarrito.shrink();
                     } else {
-                        Toast.makeText(MainActivity.this, "Tu pedido es de: " + tot.toString(), Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(getApplicationContext(), PasosPedidoActivity.class);
+                        intent.putExtra("total", tot.toString());
+                        intent.putExtra("pedido1", pedido1.toString());
+                        intent.putExtra("pedido2", pedido2.toString());
+                        intent.putExtra("pedido3", pedido3.toString());
+                        intent.putExtra("pedido4", pedido4.toString());
+                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                        startActivity(intent);
+                        overridePendingTransition(R.anim.slide_in_right, R.anim.stay);
                     }
                 }
-
             }
         });
 
