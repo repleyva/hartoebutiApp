@@ -119,7 +119,7 @@
                     android:gravity="center"
                     android:text="¡Ordena pedidos adicionales para agrandar tu compra!"
                     android:textColor="@color/titulos"
-                    android:textSize="18sp"
+                    android:textSize="20sp"
                     android:textStyle="bold" />
 
                 <LinearLayout
@@ -162,6 +162,41 @@
                     android:textStyle="bold"
                     android:layout_margin="10dp"
                     android:gravity="center"/>
+
+                <LinearLayout
+                    android:layout_marginTop="10dp"
+                    android:id="@+id/lineaAdicional"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:weightSum="12"
+                    android:gravity="center">
+
+                    <View
+                        android:layout_gravity="center"
+                        android:layout_width="0dp"
+                        android:layout_height="1dp"
+                        android:background="@color/enfasis"
+                        android:layout_weight="3"/>
+
+                    <TextView
+                        style="@style/viewParent.headerText.NoMode"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/enfasis"
+                        android:text="Adicionales"
+                        android:layout_weight="4"
+                        android:textSize="15sp"
+                        android:textAlignment="center"
+                        android:gravity="center"/>
+
+                    <View
+                        android:layout_gravity="center"
+                        android:layout_width="0dp"
+                        android:layout_height="1dp"
+                        android:background="@color/enfasis"
+                        android:layout_weight="3"/>
+
+                </LinearLayout>
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/addPlatanoAsado"
@@ -584,6 +619,76 @@
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
+                <androidx.cardview.widget.CardView
+                    android:visibility="gone"
+                    android:id="@+id/datos"
+                    android:layout_marginTop="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardElevation="2dp"
+                    app:cardUseCompatPadding="true"
+                    app:cardCornerRadius="15dp">
+
+                    <LinearLayout
+                        android:layout_margin="20dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_margin="5dp"
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Ingresa tu nombre completo"
+                            app:startIconDrawable="@drawable/ic_baseline_person_24">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/titulos">
+
+                            </com.google.android.material.textfield.TextInputEditText>
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_margin="5dp"
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Ingresa tu dirección"
+                            app:startIconDrawable="@drawable/ic_baseline_add_location_24">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/titulos">
+
+                            </com.google.android.material.textfield.TextInputEditText>
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_margin="5dp"
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Ingrese billete con el que pagará"
+                            app:startIconDrawable="@drawable/ic_baseline_monetization_on_24">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/titulos">
+
+                            </com.google.android.material.textfield.TextInputEditText>
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
 
             </LinearLayout>
 

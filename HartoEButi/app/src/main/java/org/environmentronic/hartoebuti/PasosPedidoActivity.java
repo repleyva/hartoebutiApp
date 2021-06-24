@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -62,6 +63,9 @@ public class PasosPedidoActivity extends AppCompatActivity {
 
     private CardView addPlatanoAsado, addSalsa, addPatacon, addChorizo;
 
+    private CardView datos;
+    private LinearLayout lineaAdicional;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -102,6 +106,8 @@ public class PasosPedidoActivity extends AppCompatActivity {
         addSalsa = findViewById(R.id.addSalsa);
         addPatacon = findViewById(R.id.addPatacon);
         addChorizo = findViewById(R.id.addChorizo);
+        datos = findViewById(R.id.datos);
+        lineaAdicional = findViewById(R.id.lineaAdicional);
 
         //tvEspecificacionPedido.setText(pedido1 + " " + pedido2 + " " + pedido3 + " " + pedido4);
 
@@ -124,7 +130,8 @@ public class PasosPedidoActivity extends AppCompatActivity {
                 addPlatanoAsado.setVisibility(View.GONE);
                 addPatacon.setVisibility(View.GONE);
                 addSalsa.setVisibility(View.GONE);
-
+                datos.setVisibility(View.VISIBLE);
+                lineaAdicional.setVisibility(View.GONE);
                 stepTextView.setText(stepTexts[stepIndex]);
                 stepDescriptionTextView.setText(stepDescriptionTexts[stepIndex]);
                 stepView.go(stepIndex, true);
