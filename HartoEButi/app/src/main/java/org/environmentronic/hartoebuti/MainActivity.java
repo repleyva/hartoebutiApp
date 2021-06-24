@@ -59,7 +59,8 @@ public class MainActivity extends AppCompatActivity {
     private Integer pedido2 = 0;
     private Integer pedido3 = 0;
     private Integer pedido4 = 0;
-
+    // total de compra en el carrito
+    private Integer tot = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -137,7 +138,17 @@ public class MainActivity extends AppCompatActivity {
         extendedFloatingCarrito.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                extendedFloatingCarrito.extend();
+
+                if (!extendedFloatingCarrito.isExtended()) {
+                    extendedFloatingCarrito.extend();
+                } else {
+                    if (tot == 0) {
+                        extendedFloatingCarrito.shrink();
+                    } else {
+                        Toast.makeText(MainActivity.this, "Tu pedido es de: " + tot.toString(), Toast.LENGTH_SHORT).show();
+                    }
+                }
+
             }
         });
 
@@ -326,11 +337,12 @@ public class MainActivity extends AppCompatActivity {
 
     private void setTotal() {
         String total = "";
-        Integer tot = (pedido1*(6000)) + (pedido2*(8000)) + (pedido3*(13000)) + (pedido4*(22000));
-        if (tot == 0){
+        tot = (pedido1 * (6000)) + (pedido2 * (8000)) + (pedido3 * (13000)) + (pedido4 * (22000));
+        if (tot == 0) {
             extendedFloatingCarrito.shrink();
         }
         total = "(Hacer pedido) Total: " + tot;
         extendedFloatingCarrito.setText(total);
     }
+
 }
