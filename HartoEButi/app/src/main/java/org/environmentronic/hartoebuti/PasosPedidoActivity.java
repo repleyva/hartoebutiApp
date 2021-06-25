@@ -8,11 +8,16 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
 import com.shuhart.stepview.StepView;
 
 import java.util.ArrayList;
@@ -66,6 +71,15 @@ public class PasosPedidoActivity extends AppCompatActivity {
     private CardView datos;
     private LinearLayout lineaAdicional;
 
+    private TextInputEditText nombreUsuario;
+    private TextInputEditText direccionUsuario;
+    private TextInputLayout billeteCambio;
+    private RadioButton efectivo, bancolombia, efectivoSi, efectivoNo;
+    private ExtendedFloatingActionButton btnContinuarMetodoPago, btnContinuarMetodoEfectivo;
+
+    private LinearLayout metodoBancolombia;
+    private LinearLayout metodoEfectivo;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -109,6 +123,19 @@ public class PasosPedidoActivity extends AppCompatActivity {
         datos = findViewById(R.id.datos);
         lineaAdicional = findViewById(R.id.lineaAdicional);
 
+        direccionUsuario = findViewById(R.id.direccionUsuario);
+        nombreUsuario = findViewById(R.id.nombreUsuario);
+        billeteCambio = findViewById(R.id.billeteCambio);
+        efectivo = findViewById(R.id.efectivo);
+        bancolombia = findViewById(R.id.bancolombia);
+        efectivoSi = findViewById(R.id.efectivoSi);
+        efectivoNo = findViewById(R.id.efectivoNo);
+        btnContinuarMetodoPago = findViewById(R.id.btnContinuarMetodoPago);
+        btnContinuarMetodoEfectivo = findViewById(R.id.btnContinuarMetodoEfectivo);
+        metodoBancolombia = findViewById(R.id.metodoBancolombia);
+        metodoEfectivo = findViewById(R.id.metodoEfectivo);
+
+
         //tvEspecificacionPedido.setText(pedido1 + " " + pedido2 + " " + pedido3 + " " + pedido4);
 
         stepView.getState()
@@ -135,11 +162,11 @@ public class PasosPedidoActivity extends AppCompatActivity {
                 stepTextView.setText(stepTexts[stepIndex]);
                 stepDescriptionTextView.setText(stepDescriptionTexts[stepIndex]);
                 stepView.go(stepIndex, true);
-                contadorPaginas++;
+                contadorPaginas = 2;
+                //Toast.makeText(getApplicationContext(), contadorPaginas, Toast.LENGTH_SHORT).show();
             }
 
-            if (contadorPaginas == 2){
-
+            if (contadorPaginas == 2) {
                 stepTextView.setText(stepTexts[stepIndex]);
                 stepDescriptionTextView.setText(stepDescriptionTexts[stepIndex]);
                 stepView.go(stepIndex, true);
@@ -236,5 +263,32 @@ public class PasosPedidoActivity extends AppCompatActivity {
         pedidos.add(add3);
         pedidos.add(add4);
         //tvEspecificacionPedido.setText(pedidos.toString());
+    }
+
+    public void setBtnContinuarMetodoPago(View view) {
+        if (efectivo.isChecked() || bancolombia.isChecked()) {
+            if (bancolombia.isChecked()) {
+                metodoBancolombia.setVisibility(View.VISIBLE);
+                btnContinuarMetodoPago.setVisibility(View.GONE);
+            }
+
+            if (efectivo.isChecked()) {
+                metodoEfectivo.setVisibility(View.VISIBLE);
+                btnContinuarMetodoPago.setVisibility(View.GONE);
+            }
+        }
+    }
+
+    public void setBtnContinuarEfectivo(View view) {
+        if (efectivoSi.isChecked() || efectivoNo.isChecked()) {
+            if (efectivoSi.isChecked()) {
+                btnContinuarMetodoEfectivo.setVisibility(View.GONE);
+                billeteCambio.setVisibility(View.VISIBLE);
+            }
+
+            if (efectivoNo.isChecked()) {
+                btnContinuarMetodoEfectivo.setText("Click en siguiente");
+            }
+        }
     }
 }

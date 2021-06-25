@@ -164,6 +164,7 @@
                     android:gravity="center"/>
 
                 <LinearLayout
+                    android:visibility="gone"
                     android:layout_marginTop="10dp"
                     android:id="@+id/lineaAdicional"
                     android:layout_width="match_parent"
@@ -644,6 +645,8 @@
                             app:startIconDrawable="@drawable/ic_baseline_person_24">
 
                             <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/nombreUsuario"
+                                android:inputType="text"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:textColor="@color/titulos">
@@ -661,6 +664,8 @@
                             app:startIconDrawable="@drawable/ic_baseline_add_location_24">
 
                             <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/direccionUsuario"
+                                android:inputType="text"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:textColor="@color/titulos">
@@ -669,22 +674,201 @@
 
                         </com.google.android.material.textfield.TextInputLayout>
 
-                        <com.google.android.material.textfield.TextInputLayout
-                            android:layout_margin="5dp"
-                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        <LinearLayout
+                            android:layout_marginTop="10dp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:hint="Ingrese billete con el que pagará"
-                            app:startIconDrawable="@drawable/ic_baseline_monetization_on_24">
+                            android:weightSum="12"
+                            android:gravity="center">
 
-                            <com.google.android.material.textfield.TextInputEditText
+                            <View
+                                android:layout_gravity="center"
+                                android:layout_width="0dp"
+                                android:layout_height="1dp"
+                                android:background="@color/enfasis"
+                                android:layout_weight="3"/>
+
+                            <TextView
+                                style="@style/viewParent.headerText.NoMode"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/enfasis"
+                                android:text="¿Qué metodo de pago realizará?"
+                                android:layout_weight="4"
+                                android:textSize="15sp"
+                                android:textAlignment="center"
+                                android:gravity="center"/>
+
+                            <View
+                                android:layout_gravity="center"
+                                android:layout_width="0dp"
+                                android:layout_height="1dp"
+                                android:background="@color/enfasis"
+                                android:layout_weight="3"/>
+
+                        </LinearLayout>
+
+                        <RadioGroup
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <RadioButton
+                                android:id="@+id/efectivo"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:textColor="@color/titulos">
+                                android:text="EN EFECTIVO" />
 
-                            </com.google.android.material.textfield.TextInputEditText>
+                            <RadioButton
+                                android:id="@+id/bancolombia"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="BANCOLOMBIA" />
 
-                        </com.google.android.material.textfield.TextInputLayout>
+                        </RadioGroup>
+
+                        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+                            android:layout_margin="10dp"
+                            android:id="@+id/btnContinuarMetodoPago"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:backgroundTint="@color/menu"
+                            android:text="CONTINUAR"
+                            android:gravity="center"
+                            android:textColor="@color/titulos"
+                            android:layout_gravity="center"
+                            app:icon="@drawable/ic_baseline_arrow_downward_24"
+                            app:iconTint="@color/titulos"
+                            android:onClick="setBtnContinuarMetodoPago">
+
+                        </com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton>
+
+                        <LinearLayout
+                            android:visibility="gone"
+                            android:id="@+id/metodoBancolombia"
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <ImageView
+                                android:layout_width="200dp"
+                                android:layout_height="100dp"
+                                android:src="@drawable/banco">
+
+                            </ImageView>
+
+                            <TextView
+                                android:gravity="center"
+                                android:layout_gravity="center"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/titulos"
+                                android:textSize="15sp"
+                                android:textStyle="bold"
+                                android:text="Numero de cuenta:\n13126044003">
+
+                            </TextView>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:visibility="gone"
+                            android:id="@+id/metodoEfectivo"
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <LinearLayout
+                                android:layout_marginTop="10dp"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:weightSum="12"
+                                android:gravity="center">
+
+                                <View
+                                    android:layout_gravity="center"
+                                    android:layout_width="0dp"
+                                    android:layout_height="1dp"
+                                    android:background="@color/enfasis"
+                                    android:layout_weight="3"/>
+
+                                <TextView
+                                    style="@style/viewParent.headerText.NoMode"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textColor="@color/enfasis"
+                                    android:text="¿Necesita cambio de billete?"
+                                    android:layout_weight="4"
+                                    android:textSize="15sp"
+                                    android:textAlignment="center"
+                                    android:gravity="center"/>
+
+                                <View
+                                    android:layout_gravity="center"
+                                    android:layout_width="0dp"
+                                    android:layout_height="1dp"
+                                    android:background="@color/enfasis"
+                                    android:layout_weight="3"/>
+
+                            </LinearLayout>
+
+                            <RadioGroup
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+                                <RadioButton
+                                    android:id="@+id/efectivoSi"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="SI" />
+
+                                <RadioButton
+                                    android:id="@+id/efectivoNo"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="NO" />
+
+                            </RadioGroup>
+
+                            <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+                                android:layout_margin="10dp"
+                                android:id="@+id/btnContinuarMetodoEfectivo"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:backgroundTint="@color/menu"
+                                android:text="CONTINUAR"
+                                android:gravity="center"
+                                android:textColor="@color/titulos"
+                                android:layout_gravity="center"
+                                app:icon="@drawable/ic_baseline_arrow_downward_24"
+                                app:iconTint="@color/titulos"
+                                android:onClick="setBtnContinuarEfectivo">
+
+                            </com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton>
+
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:visibility="gone"
+                                android:id="@+id/billeteCambio"
+                                android:layout_margin="5dp"
+                                app:helperText="Ingrese numero sin puntos ni comas"
+                                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="Ingrese billete con el que pagará"
+                                app:startIconDrawable="@drawable/ic_baseline_monetization_on_24">
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:inputType="number"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:textColor="@color/titulos">
+
+                                </com.google.android.material.textfield.TextInputEditText>
+
+                            </com.google.android.material.textfield.TextInputLayout>
+
+
+                        </LinearLayout>
 
 
                     </LinearLayout>
