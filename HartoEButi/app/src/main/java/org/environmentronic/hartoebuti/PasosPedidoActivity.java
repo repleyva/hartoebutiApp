@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,6 +22,8 @@ import com.google.android.material.textfield.TextInputLayout;
 import com.shuhart.stepview.StepView;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class PasosPedidoActivity extends AppCompatActivity {
 
@@ -30,7 +33,7 @@ public class PasosPedidoActivity extends AppCompatActivity {
     private String[] stepTexts = {"Paso1", "Paso 2", "Paso 3"};
     private String[] stepDescriptionTexts =
             {"¡Ordena pedidos adicionales para agrandar tu compra!",
-                    "¡Ingresa tus datos!", "¡Manda tu pedido por WhatsApp y queda HARTO E´BUTI!"};
+                    "¡Ingresa tus datos!", "¡Verifica tu compra y manda tu pedido por WhatsApp!\n¡Queda HARTO E´BUTI!"};
 
     private TextView tvTotal;
     private String total;
@@ -63,8 +66,8 @@ public class PasosPedidoActivity extends AppCompatActivity {
     private String pedido3 = "";
     private String pedido4 = "";
 
-    private ArrayList<Integer> pedidos = new ArrayList();
-    private int contadorPaginas = 1;
+    private Map<String, Integer> pedidos = new HashMap<>();
+    private int contadorPaginas = 0;
 
     private CardView addPlatanoAsado, addSalsa, addPatacon, addChorizo;
 
@@ -73,12 +76,22 @@ public class PasosPedidoActivity extends AppCompatActivity {
 
     private TextInputEditText nombreUsuario;
     private TextInputEditText direccionUsuario;
+    private TextInputEditText cambioBilleteTx;
+    private TextInputLayout nombreUsuarioLy;
+    private TextInputLayout direccionUsuarioLy;
     private TextInputLayout billeteCambio;
     private RadioButton efectivo, bancolombia, efectivoSi, efectivoNo;
     private ExtendedFloatingActionButton btnContinuarMetodoPago, btnContinuarMetodoEfectivo;
 
     private LinearLayout metodoBancolombia;
     private LinearLayout metodoEfectivo;
+    private ExtendedFloatingActionButton floatingSiguiente;
+    private RadioGroup metodoPagoGroup;
+    private Boolean necesitaCambio = false;
+    private Boolean pasar = true;
+
+    private TextView pedidoFinalEspecificadoTv;
+    private CardView pedidoFinalCard;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -134,7 +147,13 @@ public class PasosPedidoActivity extends AppCompatActivity {
         btnContinuarMetodoEfectivo = findViewById(R.id.btnContinuarMetodoEfectivo);
         metodoBancolombia = findViewById(R.id.metodoBancolombia);
         metodoEfectivo = findViewById(R.id.metodoEfectivo);
-
+        floatingSiguiente = findViewById(R.id.floatingSiguiente);
+        nombreUsuarioLy = findViewById(R.id.nombreUsuarioLy);
+        direccionUsuarioLy = findViewById(R.id.direccionUsuarioLy);
+        metodoPagoGroup = findViewById(R.id.metodoPagoGroup);
+        cambioBilleteTx = findViewById(R.id.cambioBilleteTx);
+        pedidoFinalEspecificadoTv = findViewById(R.id.pedidoFinalEspecificadoTv);
+        pedidoFinalCard = findViewById(R.id.pedidoFinalCard);
 
         //tvEspecificacionPedido.setText(pedido1 + " " + pedido2 + " " + pedido3 + " " + pedido4);
 
@@ -148,11 +167,14 @@ public class PasosPedidoActivity extends AppCompatActivity {
     }
 
     public void nexyStep(View view) {
-        stepIndex++;
+        if (pasar){
+            stepIndex++;
+            contadorPaginas = stepIndex;
+        }
+
         if (stepIndex < stepTexts.length) {
 
             if (contadorPaginas == 1) {
-                //tvEspecificacionPedido.setVisibility(View.GONE);
                 addChorizo.setVisibility(View.GONE);
                 addPlatanoAsado.setVisibility(View.GONE);
                 addPatacon.setVisibility(View.GONE);
@@ -162,18 +184,49 @@ public class PasosPedidoActivity extends AppCompatActivity {
                 stepTextView.setText(stepTexts[stepIndex]);
                 stepDescriptionTextView.setText(stepDescriptionTexts[stepIndex]);
                 stepView.go(stepIndex, true);
-                contadorPaginas = 2;
-                //Toast.makeText(getApplicationContext(), contadorPaginas, Toast.LENGTH_SHORT).show();
             }
 
             if (contadorPaginas == 2) {
-                stepTextView.setText(stepTexts[stepIndex]);
-                stepDescriptionTextView.setText(stepDescriptionTexts[stepIndex]);
-                stepView.go(stepIndex, true);
-                contadorPaginas = 1;
+                if ((!nombreUsuario.getText().toString().trim().isEmpty()) & (!direccionUsuario.getText().toString().trim().isEmpty())) {
+
+                    if (necesitaCambio & cambioBilleteTx.getText().toString().trim().isEmpty()){
+                        pasar = false;
+                        billeteCambio.setError("Debe ingresar el valor del Billete a cambiar");
+                    } else {
+                        pasar = true;
+                        datos.setVisibility(View.GONE);
+                        pedidoFinalCard.setVisibility(View.VISIBLE);
+                        stepTextView.setText(stepTexts[stepIndex]);
+                        stepDescriptionTextView.setText(stepDescriptionTexts[stepIndex]);
+                        stepView.go(stepIndex, true);
+                        floatingSiguiente.setText("¡Hacer pedido por WhatsApp!");
+                        ordenFinal();
+                    }
+
+                } else {
+
+                    pasar = false;
+
+                    if (nombreUsuario.getText().toString().trim().isEmpty()){
+                        nombreUsuarioLy.setError("Debe ingresar su nombre");
+                    }
+
+                    if (direccionUsuario.getText().toString().trim().isEmpty()){
+                        direccionUsuarioLy.setError("Debe ingresar la dirección");
+                    }
+                }
             }
 
         }
+    }
+
+    private void ordenFinal() {
+
+        for (int i = 0; i < pedidos.size(); i++) {
+            Integer in = pedidos.get(i);
+            i
+        }
+        pedidoFinalEspecificadoTv.setText(pedidos.toString());
     }
 
     @Override
@@ -254,25 +307,34 @@ public class PasosPedidoActivity extends AppCompatActivity {
         tvTotal.setText("$ " + totalFinal);
 
         // mandaré los nombres por una lista
-        pedidos.add(Integer.parseInt(pedido1));
-        pedidos.add(Integer.parseInt(pedido2));
-        pedidos.add(Integer.parseInt(pedido3));
-        pedidos.add(Integer.parseInt(pedido4));
-        pedidos.add(add1);
-        pedidos.add(add2);
-        pedidos.add(add3);
-        pedidos.add(add4);
-        //tvEspecificacionPedido.setText(pedidos.toString());
+        pedidos.put("pedido1", Integer.parseInt(pedido1)); // pedido 1
+        pedidos.put("pedido2", Integer.parseInt(pedido2)); // pedido 2
+        pedidos.put("pedido3", Integer.parseInt(pedido3)); // pedido 3
+        pedidos.put("pedido4", Integer.parseInt(pedido4)); // pedido 4
+        pedidos.put("adicional1", add1); // adicional 1
+        pedidos.put("adicional2", add2); // adicional 2
+        pedidos.put("adicional3", add3); // adicional 3
+        pedidos.put("adicional4", add4); // adicional 4
+
     }
 
     public void setBtnContinuarMetodoPago(View view) {
         if (efectivo.isChecked() || bancolombia.isChecked()) {
+
             if (bancolombia.isChecked()) {
+                pedidos.put("bancolombia", 1); // bancolombia true
+                pedidos.put("efectivo", 0); // efectivo false
+                bancolombia.setClickable(false);
+                efectivo.setClickable(false);
                 metodoBancolombia.setVisibility(View.VISIBLE);
                 btnContinuarMetodoPago.setVisibility(View.GONE);
             }
 
             if (efectivo.isChecked()) {
+                pedidos.put("bancolombia", 0); // bancolombia false
+                pedidos.put("efectivo", 1); // efectivo true
+                bancolombia.setClickable(false);
+                efectivo.setClickable(false);
                 metodoEfectivo.setVisibility(View.VISIBLE);
                 btnContinuarMetodoPago.setVisibility(View.GONE);
             }
@@ -282,11 +344,16 @@ public class PasosPedidoActivity extends AppCompatActivity {
     public void setBtnContinuarEfectivo(View view) {
         if (efectivoSi.isChecked() || efectivoNo.isChecked()) {
             if (efectivoSi.isChecked()) {
+                efectivoSi.setClickable(false);
+                efectivoNo.setClickable(false);
+                necesitaCambio = true;
                 btnContinuarMetodoEfectivo.setVisibility(View.GONE);
                 billeteCambio.setVisibility(View.VISIBLE);
             }
 
             if (efectivoNo.isChecked()) {
+                efectivoSi.setClickable(false);
+                efectivoNo.setClickable(false);
                 btnContinuarMetodoEfectivo.setText("Click en siguiente");
             }
         }
