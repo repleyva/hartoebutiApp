@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -94,6 +95,12 @@ public class PasosPedidoActivity extends AppCompatActivity {
     private TextView datosNombres;
     private CardView pedidoFinalCard;
 
+    private boolean bc = false;
+    private boolean ef = false;
+    private String cadenaPedido = "";
+    private Integer cambio;
+    private Integer totalFinal = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -175,7 +182,6 @@ public class PasosPedidoActivity extends AppCompatActivity {
         }
 
         if (stepIndex < stepTexts.length) {
-
             if (contadorPaginas == 1) {
                 addChorizo.setVisibility(View.GONE);
                 addPlatanoAsado.setVisibility(View.GONE);
@@ -187,7 +193,6 @@ public class PasosPedidoActivity extends AppCompatActivity {
                 stepDescriptionTextView.setText(stepDescriptionTexts[stepIndex]);
                 stepView.go(stepIndex, true);
             }
-
             if (contadorPaginas == 2) {
                 if ((!nombreUsuario.getText().toString().trim().isEmpty()) & (!direccionUsuario.getText().toString().trim().isEmpty())) {
 
@@ -223,28 +228,47 @@ public class PasosPedidoActivity extends AppCompatActivity {
                     }
                 }
             }
+        } else if (contadorPaginas == 3) {
+            String mensaje = "";
+            if (bc) {
+                mensaje = "\uD83D\uDD90️ *¡Hola! te hablo desde HartoE'ButiApp.*\n\n*\uD83E\uDDCD Nombre:* " + nombreUsuario.getText().toString() + "\n\uD83D\uDCCD *Dirección:* " + direccionUsuario.getText().toString() + "\n\uD83D\uDCB3 *Método de pago:* Transferencia por Bancolombia Ahorro a la mano" + "\n\n\uD83D\uDCDD Pedido: \n" + cadenaPedido + "\n\uD83D\uDCB8 *Total a pagar: " + totalFinal + "*";
+            }
 
+            if (ef) {
+                if (necesitaCambio) {
+                    mensaje = "\uD83D\uDD90️ *¡Hola! te hablo desde HartoE'ButiApp.*\n\n*\uD83E\uDDCD Nombre:* " + nombreUsuario.getText().toString() + "\n\uD83D\uDCCD *Dirección:* " + direccionUsuario.getText().toString() + "\n\uD83D\uDCB3 *Método de pago:* En efectivo con cambio de " + cambio + "\n\n\uD83D\uDCDD Pedido: \n" + cadenaPedido + "\n\uD83D\uDCB8 *Total a pagar: " + totalFinal + "*";
+                } else {
+                    mensaje = "\uD83D\uDD90️ *¡Hola! te hablo desde HartoE'ButiApp.*\n\n*\uD83E\uDDCD Nombre:* " + nombreUsuario.getText().toString() + "\n\uD83D\uDCCD *Dirección:* " + direccionUsuario.getText().toString() + "\n\uD83D\uDCB3 *Método de pago:* En efectivo, no necesito cambio" + "\n\n\uD83D\uDCDD Pedido: \n" + cadenaPedido + "\n\uD83D\uDCB8 *Total a pagar: " + totalFinal + "*";
+                }
+            }
+
+            Intent sendIntent = new Intent();
+            sendIntent.setAction(Intent.ACTION_VIEW);
+            String uri = "whatsapp://send?phone=+573158160633&text=" + mensaje;
+            sendIntent.setData(Uri.parse(uri));
+            startActivity(sendIntent);
         }
     }
 
     private void ordenFinal() {
         Integer bancolombia = pedidos.get("bancolombia");
         Integer efectivo = pedidos.get("efectivo");
-        String cadenaPedido = "";
         Integer pedido_1 = Integer.parseInt(pedido1);
         Integer pedido_2 = Integer.parseInt(pedido2);
         Integer pedido_3 = Integer.parseInt(pedido3);
         Integer pedido_4 = Integer.parseInt(pedido4);
 
         if (bancolombia == 1) {
+            bc = true;
             datosNombres.setText("Nombre: " + nombreUsuario.getText().toString() + "\nDirección: " + direccionUsuario.getText().toString() + "\nMétodo de Pago: Consignación por Bancolombia");
         }
 
         if (efectivo == 1) {
+            ef = true;
             if (necesitaCambio) {
                 Integer billete = Integer.parseInt(cambioBilleteTx.getText().toString());
                 Integer cuenta = Integer.parseInt(tvTotal.getText().toString());
-                Integer cambio =  billete - cuenta;
+                cambio = billete - cuenta;
                 datosNombres.setText("Nombre: " + nombreUsuario.getText().toString() + "\nDirección: " + direccionUsuario.getText().toString() + "\nMétodo de Pago: En efectivo con vueltos de " + cambio.toString());
             } else {
                 datosNombres.setText("Nombre: " + nombreUsuario.getText().toString() + "\nDirección: " + direccionUsuario.getText().toString() + "\nMétodo de Pago: En efectivo sin vueltos");
@@ -359,7 +383,7 @@ public class PasosPedidoActivity extends AppCompatActivity {
 
     private void setTotal() {
         pedidos.clear();
-        Integer totalFinal = 0;
+        totalFinal = 0;
         totalAdd = (add1 * (1500)) + (add2 * (500)) + (add3 * (1500)) + (add4 * (1000));
         totalFinal = totalAdd + Integer.parseInt(total);
         tvTotal.setText(totalFinal.toString());

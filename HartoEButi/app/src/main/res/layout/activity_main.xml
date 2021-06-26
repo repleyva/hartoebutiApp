@@ -161,7 +161,7 @@
                         android:layout_marginTop="10dp"
                         android:layout_marginRight="10dp"
                         android:gravity="center"
-                        android:text="¡Si no te apetece ninguno de los combos que ofrecemos puedes crear tu pedido desde cero!"
+                        android:text="¡Bievenidos a HartoE´ButiApp, desde esta aplicación podremos agilizar la toma de pedidos y una mejor atención a ustedes, nuestros clientes!"
                         android:textColor="@color/titulos"
                         android:textSize="15sp"
                         android:textStyle="bold" />
@@ -171,7 +171,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="15dp"
-                        android:text="Arma tu combo" />
+                        android:text="Menú Butístico" />
 
                 </LinearLayout>
 
