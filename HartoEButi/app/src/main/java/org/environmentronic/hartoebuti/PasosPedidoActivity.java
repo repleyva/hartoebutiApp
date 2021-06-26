@@ -91,6 +91,7 @@ public class PasosPedidoActivity extends AppCompatActivity {
     private Boolean pasar = true;
 
     private TextView pedidoFinalEspecificadoTv;
+    private TextView datosNombres;
     private CardView pedidoFinalCard;
 
     @Override
@@ -153,6 +154,7 @@ public class PasosPedidoActivity extends AppCompatActivity {
         metodoPagoGroup = findViewById(R.id.metodoPagoGroup);
         cambioBilleteTx = findViewById(R.id.cambioBilleteTx);
         pedidoFinalEspecificadoTv = findViewById(R.id.pedidoFinalEspecificadoTv);
+        datosNombres = findViewById(R.id.datosNombres);
         pedidoFinalCard = findViewById(R.id.pedidoFinalCard);
 
         //tvEspecificacionPedido.setText(pedido1 + " " + pedido2 + " " + pedido3 + " " + pedido4);
@@ -167,7 +169,7 @@ public class PasosPedidoActivity extends AppCompatActivity {
     }
 
     public void nexyStep(View view) {
-        if (pasar){
+        if (pasar) {
             stepIndex++;
             contadorPaginas = stepIndex;
         }
@@ -189,30 +191,35 @@ public class PasosPedidoActivity extends AppCompatActivity {
             if (contadorPaginas == 2) {
                 if ((!nombreUsuario.getText().toString().trim().isEmpty()) & (!direccionUsuario.getText().toString().trim().isEmpty())) {
 
-                    if (necesitaCambio & cambioBilleteTx.getText().toString().trim().isEmpty()){
+                    if (necesitaCambio & cambioBilleteTx.getText().toString().trim().isEmpty()) {
                         pasar = false;
                         billeteCambio.setError("Debe ingresar el valor del Billete a cambiar");
                     } else {
-                        pasar = true;
-                        datos.setVisibility(View.GONE);
-                        pedidoFinalCard.setVisibility(View.VISIBLE);
-                        stepTextView.setText(stepTexts[stepIndex]);
-                        stepDescriptionTextView.setText(stepDescriptionTexts[stepIndex]);
-                        stepView.go(stepIndex, true);
-                        floatingSiguiente.setText("¡Hacer pedido por WhatsApp!");
-                        ordenFinal();
+                        if (!(bancolombia.isChecked() || efectivo.isChecked())) {
+                            pasar = false;
+                            Toast.makeText(this, "Debe seleccionar un metodo de pago", Toast.LENGTH_SHORT).show();
+                        } else {
+                            pasar = true;
+                            datos.setVisibility(View.GONE);
+                            pedidoFinalCard.setVisibility(View.VISIBLE);
+                            stepTextView.setText(stepTexts[stepIndex]);
+                            stepDescriptionTextView.setText(stepDescriptionTexts[stepIndex]);
+                            stepView.go(stepIndex, true);
+                            floatingSiguiente.setText("¡Hacer pedido por WhatsApp!");
+                            ordenFinal();
+                        }
                     }
 
                 } else {
-
                     pasar = false;
-
-                    if (nombreUsuario.getText().toString().trim().isEmpty()){
+                    if (nombreUsuario.getText().toString().trim().isEmpty()) {
                         nombreUsuarioLy.setError("Debe ingresar su nombre");
                     }
-
-                    if (direccionUsuario.getText().toString().trim().isEmpty()){
+                    if (direccionUsuario.getText().toString().trim().isEmpty()) {
                         direccionUsuarioLy.setError("Debe ingresar la dirección");
+                    }
+                    if (!(bancolombia.isChecked() || efectivo.isChecked())) {
+                        Toast.makeText(this, "Debe seleccionar un metodo de pago", Toast.LENGTH_SHORT).show();
                     }
                 }
             }
@@ -221,12 +228,63 @@ public class PasosPedidoActivity extends AppCompatActivity {
     }
 
     private void ordenFinal() {
+        Integer bancolombia = pedidos.get("bancolombia");
+        Integer efectivo = pedidos.get("efectivo");
+        String cadenaPedido = "";
+        Integer pedido_1 = Integer.parseInt(pedido1);
+        Integer pedido_2 = Integer.parseInt(pedido2);
+        Integer pedido_3 = Integer.parseInt(pedido3);
+        Integer pedido_4 = Integer.parseInt(pedido4);
 
-        for (int i = 0; i < pedidos.size(); i++) {
-            Integer in = pedidos.get(i);
-            i
+        if (bancolombia == 1) {
+            datosNombres.setText("Nombre: " + nombreUsuario.getText().toString() + "\nDirección: " + direccionUsuario.getText().toString() + "\nMétodo de Pago: Consignación por Bancolombia");
         }
-        pedidoFinalEspecificadoTv.setText(pedidos.toString());
+
+        if (efectivo == 1) {
+            if (necesitaCambio) {
+                Integer billete = Integer.parseInt(cambioBilleteTx.getText().toString());
+                Integer cuenta = Integer.parseInt(tvTotal.getText().toString());
+                Integer cambio =  billete - cuenta;
+                datosNombres.setText("Nombre: " + nombreUsuario.getText().toString() + "\nDirección: " + direccionUsuario.getText().toString() + "\nMétodo de Pago: En efectivo con vueltos de " + cambio.toString());
+            } else {
+                datosNombres.setText("Nombre: " + nombreUsuario.getText().toString() + "\nDirección: " + direccionUsuario.getText().toString() + "\nMétodo de Pago: En efectivo sin vueltos");
+            }
+        }
+
+        if (pedido_1 > 0) {
+            cadenaPedido = "* " + pedido_1 + " x Cógela Suave\n";
+        }
+
+        if (pedido_2 > 0) {
+            cadenaPedido = cadenaPedido + "* " + pedido_2 + " x Visajoso\n";
+        }
+
+        if (pedido_3 > 0) {
+            cadenaPedido = cadenaPedido + "* " + pedido_3 + " x Espeluque\n";
+        }
+
+        if (pedido_4 > 0) {
+            cadenaPedido = cadenaPedido + "* " + pedido_4 + " x Barrejobo\n";
+        }
+
+        if (add1 > 0) {
+            cadenaPedido = cadenaPedido + "* " + add1 + " x Platano Amarillo Asado\n";
+        }
+
+        if (add2 > 0) {
+            cadenaPedido = cadenaPedido + "* " + add2 + " x Salsa Picante\n";
+        }
+
+        if (add3 > 0) {
+            cadenaPedido = cadenaPedido + "* " + add3 + " x Patacones\n";
+        }
+
+        if (add4 > 0) {
+            cadenaPedido = cadenaPedido + "* " + add4 + " x Chorizo\n";
+        }
+
+        pedidoFinalEspecificadoTv.setText(cadenaPedido);
+
     }
 
     @Override
@@ -301,10 +359,10 @@ public class PasosPedidoActivity extends AppCompatActivity {
 
     private void setTotal() {
         pedidos.clear();
-        int totalFinal = 0;
+        Integer totalFinal = 0;
         totalAdd = (add1 * (1500)) + (add2 * (500)) + (add3 * (1500)) + (add4 * (1000));
         totalFinal = totalAdd + Integer.parseInt(total);
-        tvTotal.setText("$ " + totalFinal);
+        tvTotal.setText(totalFinal.toString());
 
         // mandaré los nombres por una lista
         pedidos.put("pedido1", Integer.parseInt(pedido1)); // pedido 1

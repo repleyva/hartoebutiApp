@@ -746,28 +746,51 @@
                         <LinearLayout
                             android:visibility="gone"
                             android:id="@+id/metodoBancolombia"
-                            android:orientation="horizontal"
+                            android:orientation="vertical"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content">
 
-                            <ImageView
-                                android:layout_width="200dp"
-                                android:layout_height="100dp"
-                                android:src="@drawable/banco">
-
-                            </ImageView>
-
-                            <TextView
-                                android:gravity="center"
-                                android:layout_gravity="center"
+                            <LinearLayout
+                                android:orientation="horizontal"
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:textColor="@color/titulos"
-                                android:textSize="15sp"
-                                android:textStyle="bold"
-                                android:text="Numero de cuenta:\n13126044003">
+                                android:layout_height="wrap_content">
 
-                            </TextView>
+                                <ImageView
+                                    android:layout_width="200dp"
+                                    android:layout_height="100dp"
+                                    android:src="@drawable/banco">
+
+                                </ImageView>
+
+                                <TextView
+                                    android:gravity="center"
+                                    android:layout_gravity="center"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:textColor="@color/titulos"
+                                    android:textSize="15sp"
+                                    android:textStyle="bold"
+                                    android:text="Numero de cuenta:\n13126044003">
+
+                                </TextView>
+
+                            </LinearLayout>
+
+                            <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+
+                                android:layout_margin="10dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:backgroundTint="@color/menu"
+                                android:text="Click en siguiente"
+                                android:gravity="center"
+                                android:textColor="@color/titulos"
+                                android:layout_gravity="center"
+                                app:icon="@drawable/ic_baseline_arrow_downward_24"
+                                app:iconTint="@color/titulos">
+
+                            </com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton>
+
 
                         </LinearLayout>
 
@@ -897,9 +920,20 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:text="Estas ordenando: "
+                            android:text="Tus datos y pedidos son: "
                             android:textColor="@color/titulos"
                             android:textSize="@dimen/titulos"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_marginTop="10dp"
+                            android:gravity="center"
+                            android:id="@+id/datosNombres"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text=""
+                            android:textColor="@color/titulos"
+                            android:textSize="18dp"
                             android:textStyle="bold" />
 
                         <TextView
