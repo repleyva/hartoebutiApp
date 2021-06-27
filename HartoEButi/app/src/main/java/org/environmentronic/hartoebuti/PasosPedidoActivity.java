@@ -247,6 +247,7 @@ public class PasosPedidoActivity extends AppCompatActivity {
             String uri = "whatsapp://send?phone=+573158160633&text=" + mensaje;
             sendIntent.setData(Uri.parse(uri));
             startActivity(sendIntent);
+            finish();
         }
     }
 

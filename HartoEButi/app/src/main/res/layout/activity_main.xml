@@ -17,8 +17,8 @@
         app:iconGravity="start"
         android:text="Acciones"
         app:icon="@drawable/ic_baseline_add_24"
-        app:iconTint="@color/titulos"
-        android:textColor="@color/titulos"
+        app:iconTint="@color/letras_en_oscuro"
+        android:textColor="@color/letras_en_oscuro"
         android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -36,10 +36,10 @@
         android:layout_marginBottom="80dp"
         android:backgroundTint="@color/menu"
         android:gravity="center_horizontal"
-        android:textColor="@color/titulos"
+        android:textColor="@color/letras_en_oscuro"
         app:icon="@drawable/ic_baseline_info_24"
         app:iconGravity="start"
-        app:iconTint="@color/titulos"
+        app:iconTint="@color/letras_en_oscuro"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
@@ -52,10 +52,10 @@
         android:backgroundTint="@color/menu"
         android:gravity="center"
         android:text="(Hacer pedido) Total: 0"
-        android:textColor="@color/titulos"
+        android:textColor="@color/letras_en_oscuro"
         app:icon="@drawable/carrito"
         app:iconGravity="start"
-        app:iconTint="@color/titulos"
+        app:iconTint="@color/letras_en_oscuro"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginLeft="16dp"
@@ -68,7 +68,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -85,8 +84,9 @@
                 android:orientation="horizontal">
 
                 <de.hdodenhof.circleimageview.CircleImageView
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
+                    android:layout_margin="10dp"
+                    android:layout_width="90dp"
+                    android:layout_height="90dp"
                     android:src="@drawable/perfil" />
 
                 <LinearLayout
@@ -162,7 +162,7 @@
                         android:layout_marginRight="10dp"
                         android:gravity="center"
                         android:text="¡Bievenidos a HartoE´ButiApp, desde esta aplicación podremos agilizar la toma de pedidos y una mejor atención a ustedes, nuestros clientes!"
-                        android:textColor="@color/titulos"
+                        android:textColor="@color/letras_en_oscuro"
                         android:textSize="15sp"
                         android:textStyle="bold" />
 
@@ -178,37 +178,38 @@
             </androidx.cardview.widget.CardView>
 
             <LinearLayout
-                android:layout_below="@+id/opciones"
                 android:id="@+id/lineaProm"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:weightSum="12"
-                android:gravity="center">
+                android:layout_below="@+id/opciones"
+                android:gravity="center"
+                android:visibility="gone"
+                android:weightSum="12">
 
                 <View
-                    android:layout_gravity="center"
                     android:layout_width="0dp"
                     android:layout_height="1dp"
-                    android:background="@color/enfasis"
-                    android:layout_weight="3"/>
+                    android:layout_gravity="center"
+                    android:layout_weight="3"
+                    android:background="@color/enfasis" />
 
                 <TextView
                     style="@style/viewParent.headerText.NoMode"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/enfasis"
-                    android:text="Promociones"
                     android:layout_weight="4"
-                    android:textSize="15sp"
+                    android:gravity="center"
+                    android:text="Promociones"
                     android:textAlignment="center"
-                    android:gravity="center"/>
+                    android:textColor="@color/enfasis"
+                    android:textSize="15sp" />
 
                 <View
-                    android:layout_gravity="center"
                     android:layout_width="0dp"
                     android:layout_height="1dp"
-                    android:background="@color/enfasis"
-                    android:layout_weight="3"/>
+                    android:layout_gravity="center"
+                    android:layout_weight="3"
+                    android:background="@color/enfasis" />
 
             </LinearLayout>
 
@@ -218,6 +219,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="180dp"
                 android:layout_below="@+id/lineaProm"
+                android:visibility="gone"
                 app:cardBackgroundColor="@color/tarjetas"
                 app:cardCornerRadius="20dp"
                 app:cardElevation="2dp"
@@ -286,37 +288,38 @@
             </androidx.cardview.widget.CardView>
 
             <LinearLayout
-                android:layout_below="@+id/pedidoPromo"
                 android:id="@+id/lineaPedidos"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:weightSum="12"
-                android:gravity="center">
+                android:layout_below="@+id/opciones"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:weightSum="12">
 
                 <View
-                    android:layout_gravity="center"
                     android:layout_width="0dp"
                     android:layout_height="1dp"
-                    android:background="@color/enfasis"
-                    android:layout_weight="3"/>
+                    android:layout_gravity="center"
+                    android:layout_weight="3"
+                    android:background="@color/enfasis" />
 
                 <TextView
                     style="@style/viewParent.headerText.NoMode"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/enfasis"
-                    android:text="Pedidos"
                     android:layout_weight="4"
-                    android:textSize="15sp"
+                    android:gravity="center"
+                    android:text="Pedidos"
                     android:textAlignment="center"
-                    android:gravity="center"/>
+                    android:textColor="@color/enfasis"
+                    android:textSize="15sp" />
 
                 <View
-                    android:layout_gravity="center"
                     android:layout_width="0dp"
                     android:layout_height="1dp"
-                    android:background="@color/enfasis"
-                    android:layout_weight="3"/>
+                    android:layout_gravity="center"
+                    android:layout_weight="3"
+                    android:background="@color/enfasis" />
 
             </LinearLayout>
 
@@ -348,51 +351,47 @@
                             android:id="@+id/linearNumPedido1"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="horizontal"
                             android:layout_marginLeft="10dp"
-                            android:layout_marginRight="10dp"
                             android:layout_marginTop="10dp"
-                            android:gravity="center">
+                            android:layout_marginRight="10dp"
+                            android:gravity="center"
+                            android:orientation="horizontal">
 
                             <ImageView
-                                android:onClick="decrementar"
                                 android:id="@+id/btnLess1"
+                                style="@style/Button_add"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                style="@style/Button_add"
-                                android:src="@drawable/ic_baseline_horizontal_rule_24">
-                            </ImageView>
+                                android:onClick="decrementar"
+                                android:src="@drawable/ic_baseline_horizontal_rule_24"></ImageView>
 
                             <ImageView
-                                android:visibility="gone"
-                                android:onClick="eliminarPedido"
                                 android:id="@+id/btnLess1delete"
+                                style="@style/Button_add"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                style="@style/Button_add"
-                                android:src="@drawable/ic_baseline_delete_24">
-                            </ImageView>
+                                android:onClick="eliminarPedido"
+                                android:src="@drawable/ic_baseline_delete_24"
+                                android:visibility="gone"></ImageView>
 
                             <TextView
                                 android:id="@+id/numPedido1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
                                 android:layout_marginLeft="15dp"
                                 android:layout_marginRight="15dp"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
+                                android:gravity="center"
                                 android:text="0"
                                 android:textColor="@color/titulos"
-                                android:textSize="20sp"
-                                android:gravity="center">
-                            </TextView>
+                                android:textSize="20sp"></TextView>
 
                             <ImageView
-                                android:onClick="incrementar"
                                 android:id="@+id/btnAdd1"
+                                style="@style/Button_add"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                style="@style/Button_add"
-                                android:src="@drawable/ic_baseline_add_24">
-                            </ImageView>
+                                android:onClick="incrementar"
+                                android:src="@drawable/ic_baseline_add_24"></ImageView>
 
                         </LinearLayout>
 
@@ -404,11 +403,12 @@
                             android:layout_weight="1"
                             android:gravity="center">
 
-                            <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+                            <de.hdodenhof.circleimageview.CircleImageView
+                                xmlns:app="http://schemas.android.com/apk/res-auto"
                                 android:id="@+id/targeta1"
                                 android:layout_width="125dp"
                                 android:layout_height="125dp"
-                                android:src="@drawable/img2">
+                                android:src="@drawable/cogela_suave">
 
                             </de.hdodenhof.circleimageview.CircleImageView>
 
@@ -449,7 +449,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginBottom="10dp"
                                 android:text="$ 6.000"
-                                android:textColor="@color/resaltar"
+                                android:textColor="@color/menu"
                                 android:textSize="@dimen/precios"
                                 android:textStyle="bold" />
 
@@ -478,51 +478,47 @@
                             android:id="@+id/linearNumPedido2"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="horizontal"
                             android:layout_marginLeft="10dp"
-                            android:layout_marginRight="10dp"
                             android:layout_marginTop="10dp"
-                            android:gravity="center">
+                            android:layout_marginRight="10dp"
+                            android:gravity="center"
+                            android:orientation="horizontal">
 
                             <ImageView
-                                android:onClick="decrementar"
                                 android:id="@+id/btnLess2"
+                                style="@style/Button_add"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                style="@style/Button_add"
-                                android:src="@drawable/ic_baseline_horizontal_rule_24">
-                            </ImageView>
+                                android:onClick="decrementar"
+                                android:src="@drawable/ic_baseline_horizontal_rule_24"></ImageView>
 
                             <ImageView
-                                android:visibility="gone"
-                                android:onClick="eliminarPedido"
                                 android:id="@+id/btnLess2delete"
+                                style="@style/Button_add"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                style="@style/Button_add"
-                                android:src="@drawable/ic_baseline_delete_24">
-                            </ImageView>
+                                android:onClick="eliminarPedido"
+                                android:src="@drawable/ic_baseline_delete_24"
+                                android:visibility="gone"></ImageView>
 
                             <TextView
                                 android:id="@+id/numPedido2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
                                 android:layout_marginLeft="15dp"
                                 android:layout_marginRight="15dp"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
+                                android:gravity="center"
                                 android:text="0"
                                 android:textColor="@color/titulos"
-                                android:textSize="20sp"
-                                android:gravity="center">
-                            </TextView>
+                                android:textSize="20sp"></TextView>
 
                             <ImageView
-                                android:onClick="incrementar"
                                 android:id="@+id/btnAdd2"
+                                style="@style/Button_add"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                style="@style/Button_add"
-                                android:src="@drawable/ic_baseline_add_24">
-                            </ImageView>
+                                android:onClick="incrementar"
+                                android:src="@drawable/ic_baseline_add_24"></ImageView>
 
                         </LinearLayout>
 
@@ -538,7 +534,7 @@
                                 android:id="@+id/targeta2"
                                 android:layout_width="125dp"
                                 android:layout_height="125dp"
-                                android:src="@drawable/img3">
+                                android:src="@drawable/visajoso">
 
                             </de.hdodenhof.circleimageview.CircleImageView>
 
@@ -579,7 +575,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginBottom="10dp"
                                 android:text="$ 8.000"
-                                android:textColor="@color/resaltar"
+                                android:textColor="@color/menu"
                                 android:textSize="@dimen/precios"
                                 android:textStyle="bold" />
 
@@ -616,51 +612,47 @@
                             android:id="@+id/linearNumPedido3"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="horizontal"
                             android:layout_marginLeft="10dp"
-                            android:layout_marginRight="10dp"
                             android:layout_marginTop="10dp"
-                            android:gravity="center">
+                            android:layout_marginRight="10dp"
+                            android:gravity="center"
+                            android:orientation="horizontal">
 
                             <ImageView
-                                android:onClick="decrementar"
                                 android:id="@+id/btnLess3"
+                                style="@style/Button_add"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                style="@style/Button_add"
-                                android:src="@drawable/ic_baseline_horizontal_rule_24">
-                            </ImageView>
+                                android:onClick="decrementar"
+                                android:src="@drawable/ic_baseline_horizontal_rule_24"></ImageView>
 
                             <ImageView
-                                android:visibility="gone"
-                                android:onClick="eliminarPedido"
                                 android:id="@+id/btnLess3delete"
+                                style="@style/Button_add"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                style="@style/Button_add"
-                                android:src="@drawable/ic_baseline_delete_24">
-                            </ImageView>
+                                android:onClick="eliminarPedido"
+                                android:src="@drawable/ic_baseline_delete_24"
+                                android:visibility="gone"></ImageView>
 
                             <TextView
                                 android:id="@+id/numPedido3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
                                 android:layout_marginLeft="15dp"
                                 android:layout_marginRight="15dp"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
+                                android:gravity="center"
                                 android:text="0"
                                 android:textColor="@color/titulos"
-                                android:textSize="20sp"
-                                android:gravity="center">
-                            </TextView>
+                                android:textSize="20sp"></TextView>
 
                             <ImageView
-                                android:onClick="incrementar"
                                 android:id="@+id/btnAdd3"
+                                style="@style/Button_add"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                style="@style/Button_add"
-                                android:src="@drawable/ic_baseline_add_24">
-                            </ImageView>
+                                android:onClick="incrementar"
+                                android:src="@drawable/ic_baseline_add_24"></ImageView>
 
                         </LinearLayout>
 
@@ -676,7 +668,7 @@
                                 android:id="@+id/targeta3"
                                 android:layout_width="125dp"
                                 android:layout_height="125dp"
-                                android:src="@drawable/img4">
+                                android:src="@drawable/espeluque">
 
                             </de.hdodenhof.circleimageview.CircleImageView>
 
@@ -717,7 +709,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginBottom="10dp"
                                 android:text="$ 13.000"
-                                android:textColor="@color/resaltar"
+                                android:textColor="@color/menu"
                                 android:textSize="@dimen/precios"
                                 android:textStyle="bold" />
 
@@ -746,51 +738,47 @@
                             android:id="@+id/linearNumPedido4"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="horizontal"
                             android:layout_marginLeft="10dp"
-                            android:layout_marginRight="10dp"
                             android:layout_marginTop="10dp"
-                            android:gravity="center">
+                            android:layout_marginRight="10dp"
+                            android:gravity="center"
+                            android:orientation="horizontal">
 
                             <ImageView
-                                android:onClick="decrementar"
                                 android:id="@+id/btnLess4"
+                                style="@style/Button_add"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                style="@style/Button_add"
-                                android:src="@drawable/ic_baseline_horizontal_rule_24">
-                            </ImageView>
+                                android:onClick="decrementar"
+                                android:src="@drawable/ic_baseline_horizontal_rule_24"></ImageView>
 
                             <ImageView
-                                android:visibility="gone"
-                                android:onClick="eliminarPedido"
                                 android:id="@+id/btnLess4delete"
+                                style="@style/Button_add"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                style="@style/Button_add"
-                                android:src="@drawable/ic_baseline_delete_24">
-                            </ImageView>
+                                android:onClick="eliminarPedido"
+                                android:src="@drawable/ic_baseline_delete_24"
+                                android:visibility="gone"></ImageView>
 
                             <TextView
                                 android:id="@+id/numPedido4"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
                                 android:layout_marginLeft="15dp"
                                 android:layout_marginRight="15dp"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
+                                android:gravity="center"
                                 android:text="0"
                                 android:textColor="@color/titulos"
-                                android:textSize="20sp"
-                                android:gravity="center">
-                            </TextView>
+                                android:textSize="20sp"></TextView>
 
                             <ImageView
-                                android:onClick="incrementar"
                                 android:id="@+id/btnAdd4"
+                                style="@style/Button_add"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                style="@style/Button_add"
-                                android:src="@drawable/ic_baseline_add_24">
-                            </ImageView>
+                                android:onClick="incrementar"
+                                android:src="@drawable/ic_baseline_add_24"></ImageView>
 
                         </LinearLayout>
 
@@ -806,7 +794,7 @@
                                 android:id="@+id/targeta4"
                                 android:layout_width="125dp"
                                 android:layout_height="125dp"
-                                android:src="@drawable/img5">
+                                android:src="@drawable/barrejobo">
 
                             </de.hdodenhof.circleimageview.CircleImageView>
 
@@ -847,7 +835,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginBottom="10dp"
                                 android:text="$ 22.000"
-                                android:textColor="@color/resaltar"
+                                android:textColor="@color/menu"
                                 android:textSize="@dimen/precios"
                                 android:textStyle="bold" />
 

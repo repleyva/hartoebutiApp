@@ -129,11 +129,15 @@ public class MainActivity extends AppCompatActivity {
         });
 
         // click a la info
-        addFloatingInfo.setOnClickListener(
-                view -> Toast.makeText
-                        (MainActivity
-                                        .this, "Información del desarrollador",
-                                Toast.LENGTH_SHORT).show());
+        addFloatingInfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), InfoDesarrolladorActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+                overridePendingTransition(R.anim.slide_in_right, R.anim.stay);
+            }
+        });
 
         // click al carrito
         extendedFloatingCarrito.setOnClickListener(new View.OnClickListener() {

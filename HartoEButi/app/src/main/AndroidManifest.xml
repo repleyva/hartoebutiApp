@@ -9,11 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.HartoEButi">
+        <activity android:name=".InfoDesarrolladorActivity"
+            android:theme="@style/Theme.HartoEButi.NoActionBar"></activity>
         <activity
             android:name=".PasosPedidoActivity"
-            android:theme="@style/Theme.HartoEButi.NoActionBar">
-
-        </activity>
+            android:theme="@style/Theme.HartoEButi.NoActionBar"></activity>
         <activity
             android:name=".MainActivity"
             android:theme="@style/Theme.HartoEButi.NoActionBar">

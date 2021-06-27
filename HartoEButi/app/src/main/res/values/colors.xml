@@ -16,10 +16,11 @@
     <color name="titulos">#323335</color>
     <color name="enfasis">#7c7c7c</color>-->
 
-    <color name="menu">#f7cd61</color>
+    <color name="menu">#AC7455</color>
     <color name="tarjetas">#f6f1de</color>
     <color name="op3">#1e2144</color>
     <color name="resaltar">#f7cd61</color>
     <color name="titulos">#5e2939</color>
     <color name="enfasis">#7c7c7c</color>
+    <color name="letras_en_oscuro">#ffffff</color>
 </resources>
