@@ -195,7 +195,6 @@ public class PasosPedidoActivity extends AppCompatActivity {
             }
             if (contadorPaginas == 2) {
                 if ((!nombreUsuario.getText().toString().trim().isEmpty()) & (!direccionUsuario.getText().toString().trim().isEmpty())) {
-
                     if (necesitaCambio & cambioBilleteTx.getText().toString().trim().isEmpty()) {
                         pasar = false;
                         billeteCambio.setError("Debe ingresar el valor del Billete a cambiar");
