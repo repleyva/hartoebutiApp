@@ -230,14 +230,14 @@ public class PasosPedidoActivity extends AppCompatActivity {
         } else if (contadorPaginas == 3) {
             String mensaje = "";
             if (bc) {
-                mensaje = "\uD83D\uDD90️ *¡Hola! te hablo desde HartoE'ButiApp.*\n\n*\uD83E\uDDCD Nombre:* " + nombreUsuario.getText().toString() + "\n\uD83D\uDCCD *Dirección:* " + direccionUsuario.getText().toString() + "\n\uD83D\uDCB3 *Método de pago:* Transferencia por Bancolombia Ahorro a la mano" + "\n\n\uD83D\uDCDD Pedido: \n" + cadenaPedido + "\n\uD83D\uDCB8 *Total a pagar: " + totalFinal + "*";
+                mensaje = "\uD83D\uDD90️ *¡Hola! te hablo desde HartoE'ButiApp.*\n\n*\uD83E\uDDCD Nombre:* " + nombreUsuario.getText().toString() + "\n\uD83D\uDCCD *Dirección:* " + direccionUsuario.getText().toString() + "\n\uD83D\uDCB3 *Método de pago:* Transferencia por Bancolombia Ahorro a la mano" + "\n\n\uD83D\uDCDD Pedido: \n" + cadenaPedido + "\n\uD83D\uDCB8 *Total a pagar: " + tvTotal.getText().toString() + "*";
             }
 
             if (ef) {
                 if (necesitaCambio) {
-                    mensaje = "\uD83D\uDD90️ *¡Hola! te hablo desde HartoE'ButiApp.*\n\n*\uD83E\uDDCD Nombre:* " + nombreUsuario.getText().toString() + "\n\uD83D\uDCCD *Dirección:* " + direccionUsuario.getText().toString() + "\n\uD83D\uDCB3 *Método de pago:* En efectivo con cambio de " + cambio + "\n\n\uD83D\uDCDD Pedido: \n" + cadenaPedido + "\n\uD83D\uDCB8 *Total a pagar: " + totalFinal + "*";
+                    mensaje = "\uD83D\uDD90️ *¡Hola! te hablo desde HartoE'ButiApp.*\n\n*\uD83E\uDDCD Nombre:* " + nombreUsuario.getText().toString() + "\n\uD83D\uDCCD *Dirección:* " + direccionUsuario.getText().toString() + "\n\uD83D\uDCB3 *Método de pago:* En efectivo con cambio de " + cambio + "\n\n\uD83D\uDCDD Pedido: \n" + cadenaPedido + "\n\uD83D\uDCB8 *Total a pagar: " + tvTotal.getText().toString() + "*";
                 } else {
-                    mensaje = "\uD83D\uDD90️ *¡Hola! te hablo desde HartoE'ButiApp.*\n\n*\uD83E\uDDCD Nombre:* " + nombreUsuario.getText().toString() + "\n\uD83D\uDCCD *Dirección:* " + direccionUsuario.getText().toString() + "\n\uD83D\uDCB3 *Método de pago:* En efectivo, no necesito cambio" + "\n\n\uD83D\uDCDD Pedido: \n" + cadenaPedido + "\n\uD83D\uDCB8 *Total a pagar: " + totalFinal + "*";
+                    mensaje = "\uD83D\uDD90️ *¡Hola! te hablo desde HartoE'ButiApp.*\n\n*\uD83E\uDDCD Nombre:* " + nombreUsuario.getText().toString() + "\n\uD83D\uDCCD *Dirección:* " + direccionUsuario.getText().toString() + "\n\uD83D\uDCB3 *Método de pago:* En efectivo, no necesito cambio" + "\n\n\uD83D\uDCDD Pedido: \n" + cadenaPedido + "\n\uD83D\uDCB8 *Total a pagar: " + tvTotal.getText().toString() + "*";
                 }
             }
 
